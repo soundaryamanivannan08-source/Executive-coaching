@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found - Summit Path</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011',
+                            primaryHover: '#8a000e',
+                            secondary: '#111827',
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+</head>
+<body class="antialiased text-theme-textMain bg-white flex flex-col min-h-screen">
+
+    <!-- 404 Main Content -->
+    <main class="flex-grow flex items-center justify-center py-20 px-6 bg-theme-bgLight relative overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-theme-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-theme-secondary/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-2xl mx-auto text-center relative z-10">
+            <h1 class="text-9xl font-serif font-bold text-theme-primary opacity-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 select-none">404</h1>
+            
+            <i class="fas fa-compass text-6xl text-theme-primary mb-6 animate-pulse"></i>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-theme-secondary mb-4">Lost Your Way?</h2>
+            <p class="text-lg text-theme-textLight mb-10 max-w-lg mx-auto">
+                It looks like the page you are looking for has been moved, renamed, or is temporarily unavailable. Let's get you back on the right path.
+            </p>
+            
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="history.back()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white border border-gray-200 hover:border-theme-primary hover:text-theme-primary text-theme-secondary font-medium px-8 py-3.5 rounded-full transition-colors shadow-sm">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </button>
+                <a href="index.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-theme-primary hover:bg-theme-primaryHover text-white font-medium px-8 py-3.5 rounded-full transition-colors shadow-lg">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = this.querySelector('i');
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

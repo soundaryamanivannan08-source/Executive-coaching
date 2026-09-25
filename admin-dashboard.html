@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly- Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        
+        .content-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .content-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="h-screen w-full flex overflow-hidden text-theme-textMain">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-theme-secondary/50 z-40 hidden lg:hidden transition-opacity" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-theme-secondary text-white flex-shrink-0 flex flex-col fixed lg:static inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center border-b border-white/10 px-6">
+            <a href="index.html" class="flex items-center justify-center w-full">
+                <img src="assets/images/logo.webp" alt="Summit Path Admin" class="h-10 w-auto">
+            </a>
+            <button class="lg:hidden ml-auto text-gray-400 hover:text-white" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
+            <p class="text-xs font-semibold text-white/40 uppercase tracking-wider mb-4 px-3">Management</p>
+            
+            <a href="javascript:void(0)" onclick="switchTab('overview')" id="nav-overview" class="sidebar-link flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium bg-theme-primary/10 text-theme-primary transition-colors">
+                <i class="fas fa-chart-pie w-5 text-center"></i> Overview
+            </a>
+            
+            <a href="javascript:void(0)" onclick="switchTab('clients')" id="nav-clients" class="sidebar-link flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-colors">
+                <i class="fas fa-users w-5 text-center"></i> Clients
+            </a>
+            
+            <a href="javascript:void(0)" onclick="switchTab('appointments')" id="nav-appointments" class="sidebar-link flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-colors">
+                <i class="fas fa-calendar-alt w-5 text-center"></i> Appointments
+            </a>
+            
+            <a href="javascript:void(0)" onclick="switchTab('content')" id="nav-content" class="sidebar-link flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-colors">
+                <i class="fas fa-newspaper w-5 text-center"></i> Blog & Content
+            </a>
+            
+            <p class="text-xs font-semibold text-white/40 uppercase tracking-wider mt-8 mb-4 px-3">System</p>
+            
+            <a href="javascript:void(0)" onclick="switchTab('settings')" id="nav-settings" class="sidebar-link flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-colors">
+                <i class="fas fa-cog w-5 text-center"></i> Settings
+            </a>
+        </nav>
+        
+        <!-- Bottom User Info -->
+        <div class="p-4 border-t border-white/10">
+            <a href="login.html" class="mt-4 flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-red-400 hover:bg-white/5 transition-colors w-full">
+                <i class="fas fa-sign-out-alt w-5 text-center"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-gray-50 relative">
+        
+        <!-- Top Navbar -->
+        <header class="h-20 bg-white border-b border-gray-200 flex items-center justify-between px-6 lg:px-10 flex-shrink-0 z-30">
+            <div class="flex items-center gap-4">
+                <button class="lg:hidden text-theme-secondary focus:outline-none" onclick="toggleSidebar()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <h2 id="pageTitle" class="text-xl font-serif font-bold text-theme-secondary hidden sm:block">Dashboard Overview</h2>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden sm:flex items-center gap-3 border-r border-gray-200 pr-6 mr-2">
+                    <div class="w-8 h-8 rounded-full bg-theme-primary text-white flex items-center justify-center font-bold text-xs uppercase shadow-sm" id="headerAvatar">A</div>
+                    <span class="text-sm font-bold text-theme-secondary" id="headerUsername">Admin</span>
+                </div>
+                
+                
+                <!-- Notifications -->
+                <button class="relative text-gray-500 hover:text-theme-primary transition-colors">
+                    <i class="far fa-bell text-xl"></i>
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-white text-[10px] flex items-center justify-center font-bold border-2 border-white">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dynamic Sections Container -->
+        <div class="flex-1 overflow-y-auto p-6 lg:p-10 pb-24">
+            
+            <!-- 1. OVERVIEW SECTION -->
+            <section id="overview" class="content-section active">
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl"><i class="fas fa-users"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Total Clients</p>
+                            <p class="text-2xl font-bold text-theme-secondary">148</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-theme-primary/10 text-theme-primary flex items-center justify-center text-xl"><i class="fas fa-calendar-check"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Sessions this Week</p>
+                            <p class="text-2xl font-bold text-theme-secondary">24</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Monthly Revenue</p>
+                            <p class="text-2xl font-bold text-theme-secondary">$42.5k</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center text-xl"><i class="fas fa-user-plus"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Pending Requests</p>
+                            <p class="text-2xl font-bold text-theme-secondary">7</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Upcoming Layout -->
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                        <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+                            <h3 class="font-serif font-bold text-theme-secondary text-lg">Recent Client Signups</h3>
+                            <button onclick="window.location.href='404.html'" class="text-theme-primary text-sm font-semibold">View All</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
+                                        <th class="p-4 font-medium">Client</th>
+                                        <th class="p-4 font-medium">Plan</th>
+                                        <th class="p-4 font-medium">Date Joined</th>
+                                        <th class="p-4 font-medium">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="p-4 flex items-center gap-3">
+                                            <img src="assets/images/Michael.webp" alt="Michael Chen" class="w-8 h-8 rounded-full object-cover">
+                                            <span class="font-bold text-theme-secondary">Michael Chen</span>
+                                        </td>
+                                        <td class="p-4 text-gray-500">Executive 1-on-1</td>
+                                        <td class="p-4 text-gray-500">Oct 24, 2026</td>
+                                        <td class="p-4"><span onclick="window.location.href='404.html'" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold cursor-pointer hover:opacity-80">Active</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="p-4 flex items-center gap-3">
+                                            <img src="assets/images/Amanda.webp" alt="Amanda Ross" class="w-8 h-8 rounded-full object-cover">
+                                            <span class="font-bold text-theme-secondary">Amanda Ross</span>
+                                        </td>
+                                        <td class="p-4 text-gray-500">Career Acceleration</td>
+                                        <td class="p-4 text-gray-500">Oct 23, 2026</td>
+                                        <td class="p-4"><span onclick="window.location.href='404.html'" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold cursor-pointer hover:opacity-80">Active</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="p-4 flex items-center gap-3">
+                                            <img src="assets/images/David.webp" alt="David Kim" class="w-8 h-8 rounded-full object-cover">
+                                            <span class="font-bold text-theme-secondary">David Kim</span>
+                                        </td>
+                                        <td class="p-4 text-gray-500">Board Advisory</td>
+                                        <td class="p-4 text-gray-500">Oct 21, 2026</td>
+                                        <td class="p-4"><span onclick="window.location.href='404.html'" class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold cursor-pointer hover:opacity-80">Onboarding</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                        <h3 class="font-serif font-bold text-theme-secondary text-lg mb-6">Today's Sessions</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl border border-gray-100 flex items-start justify-between group hover:border-theme-primary transition-colors cursor-pointer">
+                                <div>
+                                    <p class="font-bold text-theme-secondary">Elena Rodriguez</p>
+                                    <p class="text-xs text-gray-500 mt-1"><i class="far fa-clock mr-1"></i> 10:00 AM - 11:00 AM</p>
+                                </div>
+                                <div onclick="window.location.href='404.html'" class="w-8 h-8 rounded-full bg-theme-primary/10 text-theme-primary flex items-center justify-center group-hover:bg-theme-primary group-hover:text-white transition-colors cursor-pointer"><i class="fas fa-video"></i></div>
+                            </div>
+                            <div class="p-4 rounded-xl border border-gray-100 flex items-start justify-between group hover:border-theme-primary transition-colors cursor-pointer">
+                                <div>
+                                    <p class="font-bold text-theme-secondary">Marcus Johnson</p>
+                                    <p class="text-xs text-gray-500 mt-1"><i class="far fa-clock mr-1"></i> 1:30 PM - 2:30 PM</p>
+                                </div>
+                                <div onclick="window.location.href='404.html'" class="w-8 h-8 rounded-full bg-theme-primary/10 text-theme-primary flex items-center justify-center group-hover:bg-theme-primary group-hover:text-white transition-colors cursor-pointer"><i class="fas fa-video"></i></div>
+                            </div>
+                            <div class="p-4 rounded-xl border border-gray-100 flex items-start justify-between group hover:border-theme-primary transition-colors cursor-pointer">
+                                <div>
+                                    <p class="font-bold text-theme-secondary">Sarah Connor</p>
+                                    <p class="text-xs text-gray-500 mt-1"><i class="far fa-clock mr-1"></i> 3:00 PM - 4:00 PM</p>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center"><i class="fas fa-phone"></i></div>
+                            </div>
+                        </div>
+                        <button class="w-full mt-6 py-3 rounded-xl border-2 border-dashed border-gray-200 text-gray-500 font-semibold hover:border-theme-primary hover:text-theme-primary transition-colors">
+                            <i class="fas fa-plus mr-2"></i> Schedule New
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. CLIENTS SECTION -->
+            <section id="clients" class="content-section">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-8 w-full">
+                    <h3 class="font-serif font-bold text-theme-secondary text-2xl">Client Management</h3>
+                    <button onclick="window.location.href='404.html'" class="bg-theme-primary hover:bg-theme-primaryHover text-white font-bold px-6 py-2.5 rounded-full transition-colors shadow-sm">
+                        <i class="fas fa-user-plus mr-2"></i> Add Client
+                    </button>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-x-auto overflow-y-hidden">
+                    <!-- Filters -->
+                    <div class="p-4 border-b border-gray-100 flex flex-col sm:flex-row gap-4 bg-gray-50">
+                        <input type="text" placeholder="Search name or email..." class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm w-full sm:w-64 focus:outline-none focus:border-theme-primary">
+                        <select class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm w-full sm:w-auto focus:outline-none focus:border-theme-primary">
+                            <option>All Statuses</option>
+                            <option>Active</option>
+                            <option>Pending</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+                    <!-- Table -->
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-white text-gray-400 text-xs uppercase tracking-wider border-b border-gray-100">
+                                <th class="p-5 font-semibold">Client Profile</th>
+                                <th class="p-5 font-semibold">Contact</th>
+                                <th class="p-5 font-semibold">Program</th>
+                                <th class="p-5 font-semibold">Status</th>
+                                <th class="p-5 font-semibold text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-gray-50">
+                            <!-- Rows -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-5 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">ER</div>
+                                    <div>
+                                        <p class="font-bold text-theme-secondary">Elena Rodriguez</p>
+                                        <p class="text-xs text-gray-500">TechFlow Inc. (COO)</p>
+                                    </div>
+                                </td>
+                                <td class="p-5 text-gray-500">elena@techflow.com<br><span class="text-xs">+1 (555) 293-1122</span></td>
+                                <td class="p-5 text-theme-secondary font-medium">1-on-1 Coaching</td>
+                                <td class="p-5"><span onclick="window.location.href='404.html'" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold cursor-pointer hover:opacity-80">Active</span></td>
+                                <td class="p-5 text-right space-x-2">
+                                    <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:text-theme-primary transition-colors"><i class="fas fa-eye"></i></button>
+                                    <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:text-blue-500 transition-colors"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-5 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">MJ</div>
+                                    <div>
+                                        <p class="font-bold text-theme-secondary">Marcus Johnson</p>
+                                        <p class="text-xs text-gray-500">Strive Marketing (VP)</p>
+                                    </div>
+                                </td>
+                                <td class="p-5 text-gray-500">marcus@strive.com<br><span class="text-xs">+1 (555) 882-9901</span></td>
+                                <td class="p-5 text-theme-secondary font-medium">Career Accel</td>
+                                <td class="p-5"><span onclick="window.location.href='404.html'" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold cursor-pointer hover:opacity-80">Active</span></td>
+                                <td class="p-5 text-right space-x-2">
+                                    <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:text-theme-primary transition-colors"><i class="fas fa-eye"></i></button>
+                                    <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:text-blue-500 transition-colors"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. APPOINTMENTS SECTION -->
+            <section id="appointments" class="content-section">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-8 w-full">
+                    <h3 class="font-serif font-bold text-theme-secondary text-2xl">Session Calendar</h3>
+                    <div class="flex gap-2">
+                        <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">List View</button>
+                        <button class="px-4 py-2 bg-theme-secondary text-white rounded-lg text-sm font-medium">Calendar View</button>
+                    </div>
+                </div>
+                <div class="bg-white p-12 rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-24 h-24 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-4xl text-gray-300 mb-4"><i class="far fa-calendar-alt"></i></div>
+                    <h4 class="text-lg font-bold text-theme-secondary mb-2">Calendar Integration Required</h4>
+                    <p class="text-gray-500 text-sm max-w-md mx-auto mb-6">Connect your Google Calendar or Outlook to view and manage all your upcoming coaching sessions directly within Summit Path.</p>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-lg transition-colors shadow-sm">
+                        <i class="fab fa-google mr-2"></i> Connect Google Calendar
+                    </button>
+                </div>
+            </section>
+
+            <!-- 4. CONTENT SECTION -->
+            <section id="content" class="content-section">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-8 w-full">
+                    <h3 class="font-serif font-bold text-theme-secondary text-2xl">Blog & Insights</h3>
+                    <button onclick="window.location.href='404.html'" class="bg-theme-primary hover:bg-theme-primaryHover text-white font-bold px-6 py-2.5 rounded-full transition-colors shadow-sm">
+                        <i class="fas fa-pen mr-2"></i> Write Post
+                    </button>
+                </div>
+                <div class="grid gap-6">
+                    <!-- Post Card -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between gap-6 group">
+                        <div class="flex items-center gap-6">
+                            <img src="assets/images/photo-1454165804606-c3d57bc86b40.webp" alt="Blog Thumb" class="w-24 h-24 rounded-xl object-cover">
+                            <div>
+                                <span class="text-xs font-bold text-theme-primary uppercase tracking-wider">Leadership • Published</span>
+                                <h4 class="text-xl font-serif text-theme-secondary font-bold mt-1 mb-2">The First 90 Days: A Blueprint for New C-Level Executives</h4>
+                                <p class="text-sm text-gray-500">Oct 12, 2026 • 5 min read • 1.2k Views</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="window.location.href='404.html'" class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors">Edit</button>
+                            <button onclick="window.location.href='404.html'" class="px-4 py-2 border border-red-200 text-red-500 rounded-lg text-sm font-semibold hover:bg-red-50 transition-colors">Delete</button>
+                        </div>
+                    </div>
+                    <!-- Post Card -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between gap-6 group">
+                        <div class="flex items-center gap-6">
+                            <img src="assets/images/photo-1454165804606-c3d57bc86b40.webp" alt="Blog Thumb" class="w-24 h-24 rounded-xl object-cover opacity-60">
+                            <div>
+                                <span class="text-xs font-bold text-yellow-600 uppercase tracking-wider">Draft</span>
+                                <h4 class="text-xl font-serif text-gray-400 font-bold mt-1 mb-2">Building Psychological Safety in Remote Teams</h4>
+                                <p class="text-sm text-gray-400">Last edited 2 days ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="window.location.href='404.html'" class="px-4 py-2 bg-theme-primary text-white rounded-full text-sm font-bold hover:bg-theme-primaryHover transition-colors">Continue Editing</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. SETTINGS SECTION -->
+            <section id="settings" class="content-section">
+                <h3 class="font-serif font-bold text-theme-secondary text-2xl mb-8">Platform Settings</h3>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 max-w-3xl">
+                    <form class="space-y-6">
+                        <h4 class="text-lg font-bold text-theme-secondary border-b border-gray-100 pb-2">Admin Profile</h4>
+                        <div class="flex items-center gap-6 mb-6">
+                            <div class="w-24 h-24 rounded-full bg-theme-primary flex items-center justify-center text-white font-bold font-serif text-3xl">S</div>
+                            <button type="button" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">Change Avatar</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-600 mb-2">Full Name</label>
+                                <input type="text" value="Sarah Jenkins" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-600 mb-2">Email Address</label>
+                                <input type="email" value="sarah@Summit Path.com" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
+                            </div>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-theme-secondary border-b border-gray-100 pb-2 mt-10">Security</h4>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-600 mb-2">Current Password</label>
+                                <input type="password" placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-600 mb-2">New Password</label>
+                                <input type="password" placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
+                            </div>
+                        </div>
+
+                        <div class="pt-6 flex justify-end">
+                            <button type="button" onclick="window.location.href='404.html'" class="bg-theme-secondary text-white font-bold px-8 py-3 rounded-xl hover:bg-black transition-colors">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Update links
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('bg-theme-primary/10', 'text-theme-primary');
+                link.classList.add('text-white/70');
+            });
+            const activeLink = document.getElementById(`nav-${tabId}`);
+            activeLink.classList.remove('text-white/70', 'hover:bg-white/5', 'hover:text-white');
+            activeLink.classList.add('bg-theme-primary/10', 'text-theme-primary');
+            
+            // Update page title
+            const titles = {
+                'overview': 'Dashboard Overview',
+                'clients': 'Client Management',
+                'appointments': 'Session Calendar',
+                'content': 'Blog & Insights',
+                'settings': 'Platform Settings'
+            };
+            document.getElementById('pageTitle').innerText = titles[tabId];
+
+            // Update content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+
+            // Close sidebar on mobile after clicking
+            if (window.innerWidth < 1024) {
+                toggleSidebar();
+            }
+        }
+
+        // Mobile Sidebar Toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+    </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const username = localStorage.getItem('currentUser') || 'User';
+                
+                // Update header profile if it exists
+                const headerUsername = document.getElementById('headerUsername');
+                const headerAvatar = document.getElementById('headerAvatar');
+                if(headerUsername) headerUsername.textContent = username;
+                if(headerAvatar) headerAvatar.textContent = username.charAt(0).toUpperCase();
+
+                // Update welcome heading if it exists
+                const welcomeHeading = document.getElementById('welcomeHeading');
+                if(welcomeHeading) {
+                    welcomeHeading.textContent = 'Welcome back, ' + username;
+                }
+
+                // Update sidebar profile
+                const sidebarUsername = document.getElementById('sidebarUsername');
+                const sidebarAvatar = document.getElementById('sidebarAvatar');
+                if(sidebarUsername) sidebarUsername.textContent = username;
+                if(sidebarAvatar) sidebarAvatar.textContent = username.charAt(0).toUpperCase() + (username.length > 1 ? username.charAt(1).toUpperCase() : '');
+            });
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

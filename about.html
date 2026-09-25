@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #ffffff; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        
+        .bg-hero-about {
+            background-image: linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.8)), url('assets/images/photo-1517245386807-bb43f82c33c4.webp');
+            background-size: cover; background-position: center;
+        }
+        .bg-stats-about {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)), url('assets/images/photo-1517245386807-bb43f82c33c4.webp');
+            background-size: cover; background-position: center;
+        }
+        .bg-cta-final {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('assets/images/photo-1573164574572-cb89e39749b4.webp');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased text-theme-textMain bg-white">
+
+        <!-- Header -->
+    <header class="w-full z-50 py-4 px-6 lg:px-12 bg-white shadow-sm sticky top-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto">
+            
+            <button class="md:hidden text-theme-secondary focus:outline-none" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+                        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-theme-secondary">
+                <a href="index.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Home</a>
+                <a href="about.html" class="border-b-2 border-theme-primary pb-1 text-theme-secondary">About</a>
+                <a href="service.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Service</a>
+                <a href="blog.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Blog</a>
+                <a href="contact.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Contact</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-8 py-2.5 text-sm font-bold transition-all shadow-md">Login <i class="fas fa-sign-in-alt ml-1 text-xs"></i></a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-white flex flex-col p-8 gap-6 border-t border-gray-100 z-40 overflow-y-auto text-lg" id="mobile-menu">
+            <a href="index.html" class="hover:text-theme-primary font-medium text-theme-secondary">Home</a>
+            <a href="about.html" class="hover:text-theme-primary font-medium text-theme-secondary">About</a>
+            <a href="service.html" class="hover:text-theme-primary font-medium text-theme-secondary">Service</a>
+            <a href="blog.html" class="hover:text-theme-primary font-medium text-theme-secondary">Blog</a>
+            <a href="contact.html" class="hover:text-theme-primary font-medium text-theme-secondary">Contact</a>
+            <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-6 py-2.5 text-sm font-bold text-center mt-2">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-hero-about min-h-[60vh] flex items-center relative pt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full text-white z-10 text-center">
+            <p class="uppercase tracking-widest text-xs font-semibold mb-4 opacity-90 text-theme-primary">About Summit Path</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 max-w-4xl mx-auto">
+                Empowering Leaders to Become Their Best.
+            </h1>
+            <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto font-light">
+                We are a premier executive coaching firm dedicated to guiding high-achievers through transformational growth and career acceleration.
+            </p>
+            <div class="flex items-center justify-center gap-2 text-sm font-medium opacity-80 uppercase tracking-widest">
+                <a href="index.html" class="hover:text-theme-primary transition-colors">Home</a>
+                <i class="fas fa-chevron-right text-xs mx-2"></i>
+                <span class="text-theme-primary">About</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+
+<section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative group cursor-pointer">
+                <div class="rounded-2xl overflow-hidden shadow-xl relative z-10 hover:shadow-2xl transition-shadow duration-500">
+                    <img src="assets/images/photo-1531482615713-2afd69097998.webp" alt="Our Story" class="w-full object-cover aspect-square md:aspect-[4/5] transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                </div>
+                <div class="absolute top-6 -left-6 w-full h-full bg-theme-bgLight border border-gray-200 rounded-2xl z-0 hidden md:block group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-700 ease-in-out"></div>
+            </div>
+            <div>
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Our Story</p>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">Built Around Growth, Clarity & Confidence</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    Founded with the vision that every great leader needs a dedicated partner, Summit Path was born out of a desire to bridge the gap between where professionals are and where they are meant to be. We’ve spent years refining methodologies that produce tangible, real-world results.
+                </p>
+                <p class="text-theme-textLight mb-8 leading-relaxed">
+                    Our coaching philosophy is deeply rooted in actionable insights. We believe that clarity of purpose, combined with unwavering confidence and continuous growth, forms the cornerstone of every successful leadership journey.
+                </p>
+                <a href="404.html" class="group inline-flex items-center gap-2 border border-gray-300 hover:border-theme-primary hover:bg-theme-primary hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-medium text-sm hover:shadow-md hover:-translate-y-1">
+                    Discover Our Approach <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Trusted Partners Section -->
+    <section class="py-16 px-6 lg:px-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="uppercase tracking-widest text-xs font-semibold mb-8 text-theme-textLight">Coaching Leaders From Top Organizations</p>
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="font-serif text-2xl font-bold">Acme Corp</div>
+                <div class="font-serif text-2xl font-bold">TechGlobal</div>
+                <div class="font-serif text-2xl font-bold">InnovateInc</div>
+                <div class="font-serif text-2xl font-bold">Apex Financial</div>
+                <div class="font-serif text-2xl font-bold">Summit Ventures</div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Our Coaching Philosophy -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Our Foundation</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Our Coaching Philosophy</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4 class="font-semibold text-theme-secondary text-xl mb-3">Clarity</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">We help you cut through the noise to identify what truly matters to your career and life.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-semibold text-theme-secondary text-xl mb-3">Confidence</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">Equipping you with the self-assurance needed to make tough decisions and lead authentically.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="font-semibold text-theme-secondary text-xl mb-3">Growth</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">Fostering a mindset of continuous improvement and measurable, long-term personal evolution.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h4 class="font-semibold text-theme-secondary text-xl mb-3">Purpose</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">Aligning your professional ambitions with your core values for a truly fulfilling journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+
+<section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+            <div class="p-10 rounded-2xl bg-white border border-gray-100 shadow-xl relative overflow-hidden group hover:border-theme-primary transition-colors">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-theme-bgLight rounded-full opacity-50 -mr-16 -mt-16 group-hover:bg-theme-primary/5 transition-colors"></div>
+                <div class="text-theme-primary text-3xl mb-6"><i class="fas fa-flag"></i></div>
+                <h3 class="font-serif text-3xl mb-4 text-theme-secondary">Our Mission</h3>
+                <p class="text-lg text-theme-textLight leading-relaxed font-light">
+                    To help professionals unlock their potential by providing world-class coaching that instills clarity, drive, and strategic execution.
+                </p>
+            </div>
+            <div class="p-10 rounded-2xl bg-white border border-gray-100 shadow-xl relative overflow-hidden group hover:border-theme-primary transition-colors">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-theme-bgLight rounded-full opacity-50 -mr-16 -mt-16 group-hover:bg-theme-primary/5 transition-colors"></div>
+                <div class="text-theme-primary text-3xl mb-6"><i class="fas fa-eye"></i></div>
+                <h3 class="font-serif text-3xl mb-4 text-theme-secondary">Our Vision</h3>
+                <p class="text-lg text-theme-textLight leading-relaxed font-light">
+                    To create a global community of confident, capable, and purpose-driven leaders who positively transform their industries and organizations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Core Values -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Our Core Values</h2>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 md:gap-10">
+                <div class="flex flex-col items-center text-center w-36 group cursor-default">
+                    <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-full flex items-center justify-center text-2xl text-theme-primary mb-4 group-hover:scale-110 group-hover:border-theme-primary transition-all duration-300"><i class="fas fa-balance-scale"></i></div>
+                    <h5 class="font-semibold text-theme-secondary group-hover:text-theme-primary transition-colors">Integrity</h5>
+                </div>
+                <div class="flex flex-col items-center text-center w-36 group cursor-default">
+                    <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-full flex items-center justify-center text-2xl text-theme-primary mb-4 group-hover:scale-110 group-hover:border-theme-primary transition-all duration-300"><i class="fas fa-heart"></i></div>
+                    <h5 class="font-semibold text-theme-secondary group-hover:text-theme-primary transition-colors">Empathy</h5>
+                </div>
+                <div class="flex flex-col items-center text-center w-36 group cursor-default">
+                    <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-full flex items-center justify-center text-2xl text-theme-primary mb-4 group-hover:scale-110 group-hover:border-theme-primary transition-all duration-300"><i class="fas fa-seedling"></i></div>
+                    <h5 class="font-semibold text-theme-secondary group-hover:text-theme-primary transition-colors">Growth</h5>
+                </div>
+                <div class="flex flex-col items-center text-center w-36 group cursor-default">
+                    <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-full flex items-center justify-center text-2xl text-theme-primary mb-4 group-hover:scale-110 group-hover:border-theme-primary transition-all duration-300"><i class="fas fa-handshake"></i></div>
+                    <h5 class="font-semibold text-theme-secondary group-hover:text-theme-primary transition-colors">Trust</h5>
+                </div>
+                <div class="flex flex-col items-center text-center w-36 group cursor-default">
+                    <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-full flex items-center justify-center text-2xl text-theme-primary mb-4 group-hover:scale-110 group-hover:border-theme-primary transition-all duration-300"><i class="fas fa-award"></i></div>
+                    <h5 class="font-semibold text-theme-secondary group-hover:text-theme-primary transition-colors">Excellence</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Executive Coaching Matters -->
+
+<section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">Why Executive Coaching Matters</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    Leadership is often a lonely journey, and the higher you go, the fewer people you have to rely on for honest, unbiased feedback. Executive coaching bridges that gap.
+                </p>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    It provides a structured environment where you can objectively evaluate your decision-making, refine your communication strategies, and focus on long-term career development rather than just day-to-day operations.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Sharper Decision-Making:</strong> Navigate complex challenges with clarity.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Enhanced Communication:</strong> Lead with influence and build stronger teams.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Career Acceleration:</strong> Strategically plan your next big career milestone.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-xl">
+                <img src="assets/images/photo-1517245386807-bb43f82c33c4.webp" alt="Executive Coaching" class="w-full object-cover aspect-[4/3] lg:aspect-[4/5] object-center">
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Coaches -->
+
+<section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">The Team</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Meet Our Coaches</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Coach 1 -->
+                <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/Elena.webp" alt="Sarah Jenkins" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-theme-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <a href="404.html" class="bg-white text-theme-secondary w-10 h-10 rounded-full flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-50">
+                        <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-1">Sarah Jenkins</h4>
+                        <p class="text-theme-primary text-sm font-medium mb-3">Founder & Lead Coach</p>
+                        <p class="text-theme-textLight text-xs">15+ Years Experience • Executive Leadership</p>
+                    </div>
+                </div>
+                <!-- Coach 2 -->
+                <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/David.webp" alt="David Chen" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-theme-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <a href="404.html" class="bg-white text-theme-secondary w-10 h-10 rounded-full flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-50">
+                        <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-1">David Chen</h4>
+                        <p class="text-theme-primary text-sm font-medium mb-3">Senior Executive Coach</p>
+                        <p class="text-theme-textLight text-xs">12 Years Experience • Strategy & Operations</p>
+                    </div>
+                </div>
+                <!-- Coach 3 -->
+                <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/Emily.webp" alt="Maya Patel" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-theme-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <a href="404.html" class="bg-white text-theme-secondary w-10 h-10 rounded-full flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-50">
+                        <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-1">Maya Patel</h4>
+                        <p class="text-theme-primary text-sm font-medium mb-3">Performance Coach</p>
+                        <p class="text-theme-textLight text-xs">10 Years Experience • Communication & EQ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Global Reach Section -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1 relative rounded-2xl overflow-hidden shadow-xl">
+                <img src="assets/images/photo-1522071820081-009f0129c71c.webp" alt="Global Reach" class="w-full object-cover aspect-[4/3] object-center">
+            </div>
+            <div class="order-1 lg:order-2">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Global Impact</p>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">Coaching Across Borders</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    While our headquarters is based in the heart of the business world, our impact knows no boundaries. We have successfully coached executives, founders, and emerging leaders across North America, Europe, and Asia.
+                </p>
+                <p class="text-theme-textLight mb-8 leading-relaxed">
+                    Our digital-first coaching platform allows us to connect with you wherever you are, adapting to your timezone and cultural context while maintaining the highest standard of confidentiality and excellence.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-theme-secondary text-xl mb-1">10+</h4>
+                        <p class="text-sm text-theme-textLight">Countries Reached</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-theme-secondary text-xl mb-1">100%</h4>
+                        <p class="text-sm text-theme-textLight">Remote Capable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Our Impact (Stats) -->
+
+<section class="bg-stats-about py-24 px-6 lg:px-12 text-white relative" id="stats-section">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+            <div class="p-6">
+                <div class="text-4xl md:text-5xl font-serif font-bold text-theme-primary mb-2"><span class="stat-number" data-target="500">0</span>+</div>
+                <div class="text-sm uppercase tracking-wider font-medium opacity-90">Professionals Coached</div>
+            </div>
+            <div class="p-6">
+                <div class="text-4xl md:text-5xl font-serif font-bold text-theme-primary mb-2"><span class="stat-number" data-target="15">0</span>+</div>
+                <div class="text-sm uppercase tracking-wider font-medium opacity-90">Industries</div>
+            </div>
+            <div class="p-6">
+                <div class="text-4xl md:text-5xl font-serif font-bold text-theme-primary mb-2"><span class="stat-number" data-target="8">0</span>+</div>
+                <div class="text-sm uppercase tracking-wider font-medium opacity-90">Years Experience</div>
+            </div>
+            <div class="p-6">
+                <div class="text-4xl md:text-5xl font-serif font-bold text-theme-primary mb-2"><span class="stat-number" data-target="95">0</span>%</div>
+                <div class="text-sm uppercase tracking-wider font-medium opacity-90">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const statsSection = document.getElementById('stats-section');
+            const counters = document.querySelectorAll('.stat-number');
+            let animated = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const updateCount = () => {
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText;
+                            const increment = target / 40; // 40 frames for smooth counting
+
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + increment);
+                                setTimeout(updateCount, 30);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            }, { threshold: 0.3 });
+
+            if (statsSection) observer.observe(statsSection);
+        });
+    </script>
+
+    <!-- Client Success Stories -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-b border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Testimonials</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Client Success Stories</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative group hover:shadow-md transition-shadow">
+                    <i class="fas fa-quote-left text-4xl text-theme-primary/20 absolute top-8 left-8"></i>
+                    <p class="text-theme-textLight leading-relaxed italic mb-8 relative z-10 pl-4 border-l-2 border-theme-primary">
+                        "The coaching I received completely transformed my approach to leadership. I moved from feeling overwhelmed by daily tasks to confidently leading strategic initiatives that drove our company's."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="assets/images/photo-1573497019940-1c28c88b4f3e.webp" alt="Michael R." class="w-14 h-14 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-theme-secondary">Michael R.</h4>
+                            <p class="text-xs text-theme-textLight">VP of Operations</p>
+                            <div class="text-theme-primary text-xs mt-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative group hover:shadow-md transition-shadow">
+                    <i class="fas fa-quote-left text-4xl text-theme-primary/20 absolute top-8 left-8"></i>
+                    <p class="text-theme-textLight leading-relaxed italic mb-8 relative z-10 pl-4 border-l-2 border-theme-primary">
+                        "Summit Path’s executive coaching provided the exact perspective I was missing. It’s rare to find a coach who so perfectly balances empathy with rigorous, actionable business strategy."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="assets/images/photo-1519085360753-af0119f7cbe7.webp" alt="Sarah T." class="w-14 h-14 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-theme-secondary">Sarah T.</h4>
+                            <p class="text-xs text-theme-textLight">Tech Startup Founder</p>
+                            <div class="text-theme-primary text-xs mt-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Common Inquiries</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 font-semibold text-theme-secondary bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        Who is this coaching for?
+                        <i class="fas fa-chevron-down text-theme-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-5 text-theme-textLight text-sm leading-relaxed border-t border-gray-200">
+                        Our coaching is designed for C-suite executives, senior managers, founders, and ambitious professionals who are looking to scale their impact, navigate complex transitions, or overcome specific leadership hurdles.
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 font-semibold text-theme-secondary bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        How long is a typical coaching engagement?
+                        <i class="fas fa-chevron-down text-theme-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-5 text-theme-textLight text-sm leading-relaxed border-t border-gray-200">
+                        While we offer short-term tactical sessions, meaningful behavioral change takes time. Most of our partnerships begin with a 6-month engagement, meeting bi-weekly, to ensure sustainable growth and measurable results.
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 font-semibold text-theme-secondary bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        Is everything discussed kept confidential?
+                        <i class="fas fa-chevron-down text-theme-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-5 text-theme-textLight text-sm leading-relaxed border-t border-gray-200">
+                        Absolutely. We operate under strict NDAs and ICF confidentiality guidelines. Your sessions are a completely safe, judgment-free space to explore your biggest challenges without fear of corporate blowback.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Final CTA -->
+
+<section class="py-32 px-6 lg:px-12 text-white text-center relative overflow-hidden bg-cta-final">
+        <div class="absolute inset-0 bg-theme-secondary/85 mix-blend-multiply"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-6xl font-serif mb-10 leading-tight">Ready to Lead<br>Your Next Chapter?</h2>
+            <a href="404.html" class="inline-flex flex-shrink-0 items-center gap-2 bg-theme-primary hover:bg-theme-primaryHover text-white font-medium px-10 py-4 rounded-full transition-colors text-lg shadow-xl">
+                Book a Discovery Call
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theme-secondary text-white pt-20 pb-8 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+            <!-- Col 1 -->
+            <div>
+                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6">
+                <p class="text-white/70 text-sm leading-relaxed mb-8">
+                    Providing exclusive access to world-class executive coaching. We deliver personalized, high-impact strategies tailored to elevate your leadership and career.
+                </p>
+                <div class="flex gap-4">
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <!-- Col 2 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="index.html" class="hover:text-theme-primary transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-theme-primary transition-colors">About Us</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Service</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Blog</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Services</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Executive Coaching</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Leadership Development</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Career Acceleration</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Team Workshops</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Strategy Retreats</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Contact Info</h4>
+                <ul class="space-y-5 text-white/70 text-sm">
+                    <li class="flex items-start gap-4">
+                        <i class="fas fa-map-marker-alt text-theme-primary mt-1"></i>
+                        <span class="leading-relaxed">MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-phone-alt text-theme-primary"></i>
+                        <span>9876543210</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-envelope text-theme-primary"></i>
+                        <span>info@Summit Path.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-white/50 gap-4">
+            <p>&copy; 2026 Summit Path. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="404.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <span>|</span>
+                <a href="404.html" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+          <script>
+          document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+              const menu = document.getElementById('mobile-menu');
+              const icon = this.querySelector('i');
+              menu.classList.toggle('hidden');
+              if(menu.classList.contains('hidden')) {
+                  icon.classList.remove('fa-times');
+                  icon.classList.add('fa-bars');
+              } else {
+                  icon.classList.remove('fa-bars');
+                  icon.classList.add('fa-times');
+              }
+          });
+      </script>
+    <!-- FAQ Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    content.classList.toggle('hidden');
+                    if (content.classList.contains('hidden')) {
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

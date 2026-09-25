@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly- Insights & Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #ffffff; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        
+        .bg-hero-blog {
+            background-image: linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.8)), url('assets/images/photo-1454165804606-c3d57bc86b40.webp');
+            background-size: cover; background-position: center;
+        }
+        .bg-newsletter {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)), url('assets/images/photo-1558222218-b7b54eede3f3.webp');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased text-theme-textMain bg-white">
+
+        <!-- Header -->
+    <header class="w-full z-50 py-4 px-6 lg:px-12 bg-white shadow-sm sticky top-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto">
+            
+            <button class="md:hidden text-theme-secondary focus:outline-none" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+                        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-theme-secondary">
+                <a href="index.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Home</a>
+                <a href="about.html" class="hover:text-theme-primary transition-colors text-theme-textLight">About</a>
+                <a href="service.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Service</a>
+                <a href="blog.html" class="border-b-2 border-theme-primary pb-1 text-theme-secondary">Blog</a>
+                <a href="contact.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Contact</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-8 py-2.5 text-sm font-bold transition-all shadow-md">Login <i class="fas fa-sign-in-alt ml-1 text-xs"></i></a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-white flex flex-col p-8 gap-6 border-t border-gray-100 z-40 overflow-y-auto text-lg" id="mobile-menu">
+            <a href="index.html" class="hover:text-theme-primary font-medium text-theme-secondary">Home</a>
+            <a href="about.html" class="hover:text-theme-primary font-medium text-theme-secondary">About</a>
+            <a href="service.html" class="hover:text-theme-primary font-medium text-theme-secondary">Service</a>
+            <a href="blog.html" class="hover:text-theme-primary font-medium text-theme-secondary">Blog</a>
+            <a href="contact.html" class="hover:text-theme-primary font-medium text-theme-secondary">Contact</a>
+            <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-6 py-2.5 text-sm font-bold text-center mt-2">Login</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-hero-blog min-h-[50vh] flex items-center relative pt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full text-white z-10 text-center">
+            <p class="uppercase tracking-widest text-xs font-semibold mb-4 opacity-90 text-theme-primary">Our Insights</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 max-w-4xl mx-auto">
+                Executive Leadership Blog.
+            </h1>
+            <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto font-light">
+                Explore our latest thoughts, frameworks, and strategies for navigating complex organizational challenges and mastering executive presence.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. Trending Topics (Categories Bar) -->
+    <section class="py-8 bg-white border-b border-gray-100 hidden md:block">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-center gap-8">
+            <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">Topics:</span>
+            <div class="flex gap-4">
+                <a href="404.html" class="px-5 py-2 rounded-full bg-theme-secondary text-white text-sm font-medium hover:bg-theme-primary transition-colors">All Posts</a>
+                <a href="404.html" class="px-5 py-2 rounded-full bg-theme-bgLight border border-gray-200 text-theme-textLight text-sm font-medium hover:border-theme-primary hover:text-theme-primary transition-colors">Leadership</a>
+                <a href="404.html" class="px-5 py-2 rounded-full bg-theme-bgLight border border-gray-200 text-theme-textLight text-sm font-medium hover:border-theme-primary hover:text-theme-primary transition-colors">Strategy</a>
+                <a href="404.html" class="px-5 py-2 rounded-full bg-theme-bgLight border border-gray-200 text-theme-textLight text-sm font-medium hover:border-theme-primary hover:text-theme-primary transition-colors">Team Dynamics</a>
+                <a href="404.html" class="px-5 py-2 rounded-full bg-theme-bgLight border border-gray-200 text-theme-textLight text-sm font-medium hover:border-theme-primary hover:text-theme-primary transition-colors">Career Growth</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Article -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Highlight</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Featured Article</h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 bg-theme-bgLight rounded-3xl overflow-hidden shadow-lg group border border-gray-100">
+                <div class="relative overflow-hidden h-72 lg:h-auto">
+                    <img src="assets/images/photo-1521791136064-7986c2920216.webp" alt="Featured Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8 lg:p-14 flex flex-col justify-center">
+                    <div class="flex items-center gap-4 mb-5 text-xs font-bold uppercase tracking-wider">
+                        <span class="text-theme-primary bg-theme-primary/10 px-3 py-1 rounded-full">Leadership</span>
+                        <span class="text-gray-400">Oct 12, 2026</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-serif text-theme-secondary mb-5 leading-tight group-hover:text-theme-primary transition-colors duration-300">
+                        <a href="404.html">The First 90 Days: A Blueprint for New C-Level Executives</a>
+                    </h3>
+                    <p class="text-theme-textLight leading-relaxed mb-8 text-lg">
+                        Stepping into a C-suite role is exhilarating but perilous. The first 90 days are absolutely critical for establishing authority, aligning with the board, and securing quick wins. Here is our blueprint for early success.
+                    </p>
+                    <div class="flex items-center justify-between mt-auto border-t border-gray-200 pt-6">
+                        <div class="flex items-center gap-3">
+                            <img src="assets/images/Amanda.webp" alt="Author" class="w-10 h-10 rounded-full object-cover object-top">
+                            <span class="text-sm font-bold text-theme-secondary">Sarah Jenkins</span>
+                        </div>
+                        <a href="404.html" class="text-theme-secondary hover:text-theme-primary font-bold text-sm flex items-center gap-2 transition-colors uppercase tracking-wider">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Multimedia / Video Insights -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-secondary text-white relative">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+                <p class="uppercase tracking-widest text-xs font-bold mb-4 text-theme-primary"><i class="fas fa-play-circle mr-2"></i>Video Masterclass</p>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 leading-tight">Mastering Executive Presence</h2>
+                <p class="text-white/70 leading-relaxed mb-8">
+                    In this 15-minute exclusive video, Lead Coach Sarah Jenkins breaks down the three physical and psychological pillars of commanding a room, whether in-person or virtually.
+                </p>
+                <a href="404.html" class="inline-flex items-center gap-3 bg-white text-theme-secondary px-8 py-3 rounded-full font-bold hover:bg-theme-primary hover:text-white transition-colors">
+                    Watch Full Video
+                </a>
+            </div>
+            <div class="lg:col-span-7 relative group cursor-pointer">
+                <div class="rounded-2xl overflow-hidden relative shadow-2xl">
+                    <img src="assets/images/photo-1497366216548-37526070297c.webp" alt="Video Masterclass" class="w-full object-cover aspect-video opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-theme-secondary/40"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 bg-theme-primary rounded-full flex items-center justify-center text-white text-2xl pl-1 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Latest Insights Grid -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Latest Insights</h2>
+                <p class="text-theme-textLight mt-4 max-w-2xl mx-auto">Browse our complete archive of leadership strategies and stories from the frontlines.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Post 1 -->
+                <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="assets/images/photo-1517245386807-bb43f82c33c4.webp" alt="Team Dynamics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                            <span class="text-theme-primary">Team Dynamics</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-400">Oct 05, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-theme-secondary mb-3 leading-snug group-hover:text-theme-primary transition-colors">
+                            <a href="404.html">Building Psychological Safety in Remote Executive Teams</a>
+                        </h3>
+                        <p class="text-theme-textLight text-sm mb-6 flex-grow leading-relaxed">
+                            Distance creates friction. Learn how to foster an environment of trust and open dialogue when your leadership team spans multiple time zones.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                            <span class="text-sm font-bold text-theme-primary transition-colors">Read more</span>
+                            <a href="404.html" class="text-theme-secondary group-hover:text-theme-primary font-medium text-sm transition-colors"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="assets/images/photo-1517245386807-bb43f82c33c4.webp" alt="Strategy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                            <span class="text-theme-primary">Strategy</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-400">Sep 28, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-theme-secondary mb-3 leading-snug group-hover:text-theme-primary transition-colors">
+                            <a href="404.html">Navigating the Boardroom: 3 Pillars of Effective Communication</a>
+                        </h3>
+                        <p class="text-theme-textLight text-sm mb-6 flex-grow leading-relaxed">
+                            The board wants clarity, not details. Discover the framework top CEOs use to present strategic updates that inspire confidence rather than anxiety.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                            <span class="text-sm font-bold text-theme-primary transition-colors">Read more</span>
+                            <a href="404.html" class="text-theme-secondary group-hover:text-theme-primary font-medium text-sm transition-colors"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="assets/images/photo-1464822759023-fed622ff2c3b.webp" alt="Mindset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                            <span class="text-theme-primary">Mindset</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-400">Sep 15, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-theme-secondary mb-3 leading-snug group-hover:text-theme-primary transition-colors">
+                            <a href="404.html">The Imposter Syndrome Paradox in the C-Suite</a>
+                        </h3>
+                        <p class="text-theme-textLight text-sm mb-6 flex-grow leading-relaxed">
+                            It doesn't disappear when you reach the top; it just changes shape. How to leverage self-doubt as a tool for empathetic leadership.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                            <span class="text-sm font-bold text-theme-primary transition-colors">Read more</span>
+                            <a href="404.html" class="text-theme-secondary group-hover:text-theme-primary font-medium text-sm transition-colors"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="assets/images/photo-1542744173-8e7e53415bb0.webp" alt="Career Growth" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                            <span class="text-theme-primary">Career Growth</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-400">Sep 02, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-theme-secondary mb-3 leading-snug group-hover:text-theme-primary transition-colors">
+                            <a href="404.html">When to Pivot: Recognizing the Signs You've Outgrown Your Role</a>
+                        </h3>
+                        <p class="text-theme-textLight text-sm mb-6 flex-grow leading-relaxed">
+                            Are you comfortable or complacent? Identifying the subtle differences and strategically planning your next monumental career move.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                            <span class="text-sm font-bold text-theme-primary transition-colors">Read more</span>
+                            <a href="404.html" class="text-theme-secondary group-hover:text-theme-primary font-medium text-sm transition-colors"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="assets/images/photo-1507679799987-c73779587ccf.webp" alt="Leadership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                            <span class="text-theme-primary">Leadership</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-400">Aug 20, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-theme-secondary mb-3 leading-snug group-hover:text-theme-primary transition-colors">
+                            <a href="404.html">Delegation is Not Dumping: The Art of Empowering Execution</a>
+                        </h3>
+                        <p class="text-theme-textLight text-sm mb-6 flex-grow leading-relaxed">
+                            Stop micro-managing. Learn the framework for handing off massive projects while retaining ultimate visibility and accountability.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                            <span class="text-sm font-bold text-theme-primary transition-colors">Read more</span>
+                            <a href="404.html" class="text-theme-secondary group-hover:text-theme-primary font-medium text-sm transition-colors"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="assets/images/photo-1454165804606-c3d57bc86b40.webp" alt="Strategy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                            <span class="text-theme-primary">Strategy</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-400">Aug 11, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-theme-secondary mb-3 leading-snug group-hover:text-theme-primary transition-colors">
+                            <a href="404.html">The Post-M&A Culture Clash: How to Unify Divided Teams</a>
+                        </h3>
+                        <p class="text-theme-textLight text-sm mb-6 flex-grow leading-relaxed">
+                            Mergers look great on paper but fail in the breakroom. A CEO's guide to actively designing and merging conflicting corporate cultures.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                            <span class="text-sm font-bold text-theme-primary transition-colors">Read more</span>
+                            <a href="404.html" class="text-theme-secondary group-hover:text-theme-primary font-medium text-sm transition-colors"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Author Spotlight -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-4">
+                <div class="relative mx-auto w-48 md:w-full aspect-[4/5] rounded-full md:rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                    <img src="assets/images/photo-1531482615713-2afd69097998.webp" alt="Sarah Jenkins" class="w-full h-full object-cover object-top">
+                </div>
+            </div>
+            <div class="md:col-span-8 text-center md:text-left">
+                <p class="uppercase tracking-widest text-xs font-bold mb-4 text-theme-primary">Chief Editor & Lead Coach</p>
+                <h3 class="text-3xl font-serif text-theme-secondary mb-4">Sarah Jenkins</h3>
+                <p class="text-theme-textLight leading-relaxed mb-6 italic">
+                    "My goal with this publication is simple: to pull back the curtain on the real conversations happening in boardrooms and executive suites around the world, giving you the practical tools to navigate your own leadership journey."
+                </p>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <a href="404.html" class="text-theme-secondary hover:text-theme-primary transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="404.html" class="text-theme-secondary hover:text-theme-primary transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 10. Podcast Section -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+            <div class="lg:w-1/2">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">New Audio Series</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary mb-6">The Executive Mindset Podcast</h2>
+                <p class="text-theme-textLight mb-8 leading-relaxed">Join us weekly as we interview industry titans, Fortune 500 CEOs, and thought leaders about how they navigate crises, manage high-performing teams, and maintain clarity under pressure.</p>
+                <div class="space-y-4 mb-8">
+                    <div class="p-4 border border-gray-100 rounded-xl flex items-center gap-4 hover:shadow-md transition-shadow bg-gray-50">
+                        <div class="w-12 h-12 bg-theme-primary text-white rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-play"></i></div>
+                        <div>
+                            <h4 class="font-bold text-theme-secondary text-sm">Ep 42: Navigating Boardroom Politics</h4>
+                            <p class="text-xs text-theme-textLight">45 mins � with Marcus Vance</p>
+                        </div>
+                    </div>
+                    <div class="p-4 border border-gray-100 rounded-xl flex items-center gap-4 hover:shadow-md transition-shadow bg-gray-50">
+                        <div class="w-12 h-12 bg-theme-primary text-white rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-play"></i></div>
+                        <div>
+                            <h4 class="font-bold text-theme-secondary text-sm">Ep 41: The Empathy Advantage</h4>
+                            <p class="text-xs text-theme-textLight">38 mins � with Dr. Sarah Jenkins</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="404.html" class="font-bold text-theme-primary hover:text-theme-primaryHover transition-colors">Listen to all episodes <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            <div class="lg:w-1/2 relative">
+                <img src="assets/images/photo-1558222218-b7b54eede3f3.webp" alt="Podcast Recording" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block">
+                    <div class="flex items-center gap-4">
+                        <div class="flex -space-x-4">
+                            <img src="assets/images/Sarah.webp" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                            <img src="assets/images/David.webp" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-theme-secondary text-sm">10k+ Listeners</p>
+                            <p class="text-xs text-theme-textLight">Join the community</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Upcoming Webinars -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Live Events</p>
+            <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Upcoming Leadership Workshops</h2>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all text-left">
+                <div class="inline-block px-3 py-1 bg-red-50 text-theme-primary text-xs font-bold rounded-full mb-4">OCT 15 � 2:00 PM EST</div>
+                <h3 class="text-2xl font-serif font-bold text-theme-secondary mb-3">Mastering the Art of Delegation</h3>
+                <p class="text-sm text-theme-textLight mb-6 leading-relaxed">Stop micromanaging and start empowering. Learn the proprietary 4-step framework our coaches use to help CEOs.</p>
+                <a href="404.html" class="inline-block bg-theme-primary hover:bg-theme-primaryHover text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors">Register Free</a>
+            </div>
+            <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all text-left">
+                <div class="inline-block px-3 py-1 bg-red-50 text-theme-primary text-xs font-bold rounded-full mb-4">OCT 28 � 10:00 AM EST</div>
+                <h3 class="text-2xl font-serif font-bold text-theme-secondary mb-3">Emotional Intelligence in Crisis</h3>
+                <p class="text-sm text-theme-textLight mb-6 leading-relaxed">How to maintain composure, communicate effectively, and guide your organization through periods of extreme uncertainty.</p>
+                <a href="404.html" class="inline-block bg-theme-primary hover:bg-theme-primaryHover text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors">Register Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Free Resources -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-secondary text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-theme-primary/20 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <img src="assets/images/photo-1454165804606-c3d57bc86b40.webp" alt="Resources" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/3] opacity-80">
+            </div>
+            <div>
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Downloadables</p>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6">Exclusive Frameworks & E-Books</h2>
+                <p class="text-white/70 mb-8 leading-relaxed">Don't have time for a full coaching session? Download our proprietary frameworks and read them on your own time. Condensed, actionable, and instantly applicable.</p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-white/90"><i class="fas fa-check text-theme-primary"></i> The First 90 Days Checklist for VPs</li>
+                    <li class="flex items-center gap-3 text-white/90"><i class="fas fa-check text-theme-primary"></i> Conflict Resolution Script Templates</li>
+                    <li class="flex items-center gap-3 text-white/90"><i class="fas fa-check text-theme-primary"></i> The Board Communication Cheat Sheet</li>
+                </ul>
+                <a href="404.html" class="inline-block bg-theme-primary hover:bg-theme-primaryHover text-white px-8 py-3 rounded-full font-bold transition-colors shadow-lg">Access Resource Library</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Case Studies -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-100 pb-6">
+                <div>
+                    <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Proven Results</p>
+                    <h2 class="text-3xl font-serif text-theme-secondary">In-Depth Case Studies</h2>
+                </div>
+                <a href="404.html" class="font-bold text-theme-primary hover:text-theme-primaryHover mt-4 md:mt-0 transition-colors">View all cases <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-2xl mb-6 relative">
+                        <img src="assets/images/photo-1573164574572-cb89e39749b4.webp" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white text-theme-secondary text-xs font-bold px-3 py-1 rounded-full shadow-md">Tech Sector</div>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-theme-secondary mb-3 group-hover:text-theme-primary transition-colors md:min-h-[4rem]">How a Series B Founder Scaled Her Leadership Team</h3>
+                    <p class="text-theme-textLight text-sm leading-relaxed">A deep dive into the 6-month engagement that helped a technical founder successfully transition into a visionary CEO role while navigating rapid headcount growth.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-2xl mb-6 relative">
+                        <img src="assets/images/photo-1552664730-d307ca884978.webp" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white text-theme-secondary text-xs font-bold px-3 py-1 rounded-full shadow-md">Finance</div>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-theme-secondary mb-3 group-hover:text-theme-primary transition-colors md:min-h-[4rem]">Overcoming C-Suite Silos at a Global Bank</h3>
+                    <p class="text-theme-textLight text-sm leading-relaxed">Discover the conflict-resolution frameworks we implemented to align a fractured executive team, resulting in a 30% increase in cross-departmental initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 8. Newsletter CTA -->
+    <section class="py-24 px-6 lg:px-12 bg-newsletter text-white relative">
+        <div class="absolute inset-0 bg-theme-secondary/90 mix-blend-multiply"></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <i class="fas fa-envelope-open-text text-4xl text-theme-primary mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Leadership Insights,<br>Delivered Weekly.</h2>
+            <p class="text-white/80 mb-10 max-w-xl mx-auto text-sm md:text-base">Join over 15,000 executives who receive our exclusive newsletter packed with actionable frameworks, case studies, and coaching strategies.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input type="email" placeholder="Enter your business email" class="flex-grow px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-theme-primary transition-colors" required>
+                <button type="button" onclick="window.location.href='404.html'" class="bg-theme-primary hover:bg-theme-primaryHover text-white font-semibold px-8 py-4 rounded-full transition-colors whitespace-nowrap">Subscribe Now</button>
+            </form>
+            <p class="text-xs text-white/50 mt-4">We respect your inbox. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- 9. Final Services CTA -->
+    <section class="py-16 px-6 lg:px-12 bg-theme-primary text-white text-center">
+        <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <h3 class="text-2xl font-serif font-bold mb-1">Ready to put these insights into practice?</h3>
+                <p class="opacity-80 text-sm font-medium">Discover how our 1-on-1 coaching can accelerate your career.</p>
+            </div>
+            <a href="404.html" class="bg-theme-secondary text-white hover:bg-white hover:text-theme-secondary font-bold px-8 py-4 rounded-full transition-colors shadow-lg flex-shrink-0">
+                View Our Services
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theme-secondary text-white pt-20 pb-8 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+            <!-- Col 1 -->
+            <div>
+                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6">
+                <p class="text-white/70 text-sm leading-relaxed mb-8">
+                    Providing exclusive access to world-class executive coaching. We deliver personalized, high-impact strategies tailored to elevate your leadership and career.
+                </p>
+                <div class="flex gap-4">
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <!-- Col 2 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="index.html" class="hover:text-theme-primary transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-theme-primary transition-colors">About Us</a></li>
+                    <li><a href="service.html" class="hover:text-theme-primary transition-colors">Service</a></li>
+                    <li><a href="blog.html" class="hover:text-theme-primary transition-colors">Blog</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Services</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Executive Coaching</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Leadership Development</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Career Acceleration</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Team Workshops</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Strategy Retreats</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Contact Info</h4>
+                <ul class="space-y-5 text-white/70 text-sm">
+                    <li class="flex items-start gap-4">
+                        <i class="fas fa-map-marker-alt text-theme-primary mt-1"></i>
+                        <span class="leading-relaxed">MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-phone-alt text-theme-primary"></i>
+                        <span>9876543210</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-envelope text-theme-primary"></i>
+                        <span>info@Summit Path.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-white/50 gap-4">
+            <p>&copy; 2026 Summit Path. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="404.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <span>|</span>
+                <a href="404.html" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+          <script>
+          document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+              const menu = document.getElementById('mobile-menu');
+              const icon = this.querySelector('i');
+              menu.classList.toggle('hidden');
+              if(menu.classList.contains('hidden')) {
+                  icon.classList.remove('fa-times');
+                  icon.classList.add('fa-bars');
+              } else {
+                  icon.classList.remove('fa-bars');
+                  icon.classList.add('fa-times');
+              }
+          });
+      </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

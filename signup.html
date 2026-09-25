@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Create Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #ffffff; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        .bg-auth-side {
+            background-image: url('assets/images/photo-1497366216548-37526070297c.webp');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex text-theme-textMain bg-white">
+
+    <!-- Left Side: Image / Branding (Hidden on Mobile) -->
+    <div class="hidden lg:flex lg:w-1/2 bg-auth-side relative overflow-hidden">
+        <div class="absolute inset-0 bg-theme-secondary/85 mix-blend-multiply transition-all duration-700 hover:bg-theme-secondary/75"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-theme-secondary via-theme-secondary/20 to-transparent"></div>
+        
+        <div class="relative z-10 flex flex-col justify-end p-16 lg:p-24 text-white w-full h-full">
+            <div class="mb-8">
+                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto -ml-3">
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-serif leading-tight mb-6">Join the Elite Network of Leaders.</h2>
+            <p class="text-white/70 text-lg max-w-md font-light">Create your account to schedule sessions, track your growth, and access exclusive strategic frameworks.</p>
+        </div>
+    </div>
+
+    <!-- Right Side: Signup Form -->
+    <div class="w-full lg:w-1/2 flex flex-col justify-center relative p-8 sm:p-16 lg:p-24 h-screen overflow-y-auto">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="absolute top-8 right-8 sm:top-12 sm:right-12 text-sm font-semibold text-gray-400 hover:text-theme-primary transition-colors flex items-center gap-2 group z-10">
+            <i class="fas fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i> Back to Home
+        </a>
+
+        <div class="w-full max-w-md mx-auto mt-16 lg:mt-0 py-10">
+            <!-- Header -->
+            <div class="mb-10 text-center lg:text-left">
+                <h1 class="text-3xl md:text-4xl font-serif text-theme-secondary mb-3">Create an Account</h1>
+                <p class="text-theme-textLight text-sm">Fill in the fields below to get started.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="signupForm" onsubmit="handleSignup(event)" class="space-y-6">
+                
+                <!-- Role Selector -->
+                <div class="flex bg-gray-50 border border-gray-200 p-1 rounded-xl mb-6 shadow-inner">
+                    <label class="flex-1 text-center cursor-pointer relative">
+                        <input type="radio" name="role" value="user" class="peer sr-only" checked>
+                        <div class="py-2.5 rounded-lg text-sm font-bold text-gray-400 peer-checked:bg-white peer-checked:text-theme-secondary peer-checked:shadow-sm transition-all duration-300">User</div>
+                    </label>
+                    <label class="flex-1 text-center cursor-pointer relative">
+                        <input type="radio" name="role" value="admin" class="peer sr-only">
+                        <div class="py-2.5 rounded-lg text-sm font-bold text-gray-400 peer-checked:bg-white peer-checked:text-theme-secondary peer-checked:shadow-sm transition-all duration-300">Admin</div>
+                    </label>
+                </div>
+
+                <!-- Username -->
+                <div>
+                    <label class="block text-sm font-semibold text-theme-secondary mb-2">Username</label>
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" placeholder="johndoe" class="w-full pl-12 pr-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors text-sm shadow-sm" required>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-sm font-semibold text-theme-secondary mb-2">Email Address</label>
+                    <div class="relative">
+                        <i class="fas fa-envelope absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="email" placeholder="john@company.com" class="w-full pl-12 pr-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors text-sm shadow-sm" required>
+                    </div>
+                </div>
+
+                <!-- Password with Eye Toggle -->
+                <div>
+                    <label class="block text-sm font-semibold text-theme-secondary mb-2">Password</label>
+                    <div class="relative group">
+                        <i class="fas fa-lock absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" id="password" placeholder="••••••••" class="w-full pl-12 pr-12 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors text-sm shadow-sm" required>
+                        <i id="togglePasswordIcon1" class="fas fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-theme-primary cursor-pointer transition-colors" onclick="togglePassword('password', 'togglePasswordIcon1')"></i>
+                    </div>
+                </div>
+
+                <!-- Confirm Password with Eye Toggle -->
+                <div>
+                    <label class="block text-sm font-semibold text-theme-secondary mb-2">Confirm Password</label>
+                    <div class="relative group">
+                        <i class="fas fa-lock-open absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" id="confirmPassword" placeholder="••••••••" class="w-full pl-12 pr-12 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors text-sm shadow-sm" required>
+                        <i id="togglePasswordIcon2" class="fas fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-theme-primary cursor-pointer transition-colors" onclick="togglePassword('confirmPassword', 'togglePasswordIcon2')"></i>
+                    </div>
+                </div>
+
+                <!-- Terms and Privacy -->
+                <div class="flex items-start gap-3 mt-4">
+                    <input type="checkbox" id="terms" class="mt-1 w-4 h-4 rounded border-gray-300 text-theme-primary focus:ring-theme-primary accent-theme-primary cursor-pointer" required>
+                    <label for="terms" class="text-sm font-medium text-theme-textLight leading-relaxed cursor-pointer">
+                        I accept the <a href="404.html" class="text-theme-primary font-bold hover:text-theme-secondary transition-colors">Privacy Policy</a> and <a href="404.html" class="text-theme-primary font-bold hover:text-theme-secondary transition-colors">Terms & Conditions</a>.
+                    </label>
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" class="w-full bg-theme-primary hover:bg-theme-primaryHover text-white font-bold px-10 py-4 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Register Account
+                </button>
+            </form>
+
+            <!-- Login Link -->
+            <p class="text-center text-sm font-medium text-theme-textLight mt-8 pb-8 lg:pb-0">
+                Already have an account? 
+                <a href="login.html" class="text-theme-secondary font-bold hover:text-theme-primary transition-colors">Sign in here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Interactive Logic -->
+    <script>
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        function handleSignup(e) {
+            e.preventDefault(); // Prevent page reload
+            // Form validation is handled automatically by the browser due to 'required' attributes
+            
+            const form = document.getElementById('signupForm');
+            if(form.checkValidity()) {
+                // If valid, redirect to login page as requested
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

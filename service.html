@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Our Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #ffffff; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        
+        .bg-hero-service {
+            background-image: linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.8)), url('assets/images/photo-1519389950473-47ba0277781c.webp');
+            background-size: cover; background-position: center;
+        }
+        .bg-cta-final {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('assets/images/photo-1519389950473-47ba0277781c.webp');
+            background-size: cover; background-position: center;
+        }
+        .accordion-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-icon.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased text-theme-textMain bg-white">
+
+        <!-- Header -->
+    <header class="w-full z-50 py-4 px-6 lg:px-12 bg-white shadow-sm sticky top-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto">
+            
+            <button class="md:hidden text-theme-secondary focus:outline-none" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+                        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-theme-secondary">
+                <a href="index.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Home</a>
+                <a href="about.html" class="hover:text-theme-primary transition-colors text-theme-textLight">About</a>
+                <a href="service.html" class="border-b-2 border-theme-primary pb-1 text-theme-secondary">Service</a>
+                <a href="blog.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Blog</a>
+                <a href="contact.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Contact</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-8 py-2.5 text-sm font-bold transition-all shadow-md">Login <i class="fas fa-sign-in-alt ml-1 text-xs"></i></a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-white flex flex-col p-8 gap-6 border-t border-gray-100 z-40 overflow-y-auto text-lg" id="mobile-menu">
+            <a href="index.html" class="hover:text-theme-primary font-medium text-theme-secondary">Home</a>
+            <a href="about.html" class="hover:text-theme-primary font-medium text-theme-secondary">About</a>
+            <a href="service.html" class="hover:text-theme-primary font-medium text-theme-secondary">Service</a>
+            <a href="blog.html" class="hover:text-theme-primary font-medium text-theme-secondary">Blog</a>
+            <a href="contact.html" class="hover:text-theme-primary font-medium text-theme-secondary">Contact</a>
+            <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-6 py-2.5 text-sm font-bold text-center mt-2">Login</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-hero-service min-h-[60vh] flex items-center relative pt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full text-white z-10 text-center">
+            <p class="uppercase tracking-widest text-xs font-semibold mb-4 opacity-90 text-theme-primary">Our Programs</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 max-w-4xl mx-auto">
+                Transformative Coaching Services.
+            </h1>
+            <p class="text-lg opacity-90 mb-10 max-w-2xl mx-auto font-light">
+                Tailored strategies and unbiased guidance to help you navigate complex challenges, accelerate your career, and lead with absolute confidence.
+            </p>
+            <a href="#services" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/20 hover:border-theme-primary hover:text-theme-primary transition-colors duration-300">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Intro Section -->
+    <section class="py-20 px-6 lg:px-12 bg-theme-bgLight border-b border-gray-100 text-center">
+        <div class="max-w-3xl mx-auto">
+            <i class="fas fa-gem text-4xl text-theme-primary mb-6"></i>
+            <h2 class="text-3xl font-serif text-theme-secondary mb-6">A Partnership Built For Excellence</h2>
+            <p class="text-theme-textLight leading-relaxed">
+                Whether you are a seasoned executive looking to refine your strategic vision, or an emerging leader stepping into a high-stakes role, our coaching programs are meticulously designed to unlock your highest potential. We don't just give advice; we build lasting capabilities.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. Who Is This For? -->
+    <section class="py-24 px-6 lg:px-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Target Audience</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Who We Help</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-theme-bgLight border border-gray-100 shadow-sm text-center group hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300"><i class="fas fa-user-tie"></i></div>
+                    <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-3">C-Suite Executives</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">For CEOs, CFOs, and COOs navigating high-stakes organizational change, board dynamics, and enterprise strategy.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-theme-bgLight border border-gray-100 shadow-sm text-center group hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300"><i class="fas fa-rocket"></i></div>
+                    <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-3">Startup Founders</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">For founders transitioning from product builders to company leaders, managing rapid scaling and investor relations.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-theme-bgLight border border-gray-100 shadow-sm text-center group hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors duration-300"><i class="fas fa-chart-line"></i></div>
+                    <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-3">VP & Directors</h4>
+                    <p class="text-theme-textLight text-sm leading-relaxed">For emerging leaders looking to shatter the glass ceiling, accelerate their career path, and master team management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="services"></div> <!-- Anchor -->
+
+    <!-- 4. Service 1: 1-on-1 Executive Coaching -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            <div class="order-2 lg:order-1 pt-4">
+                <div class="inline-block bg-theme-primary/10 text-theme-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">Core Offering</div>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">1-on-1 Executive Coaching</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    A deeply personalized engagement designed for senior leaders. We provide a confidential sounding board to help you tackle complex organizational challenges, navigate high-stakes decisions, and overcome blind spots.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Strategic Clarity:</strong> Align your personal vision with company goals.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Emotional Intelligence:</strong> Enhance your self-awareness and empathy.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Executive Presence:</strong> Command rooms and inspire your teams.</span>
+                    </li>
+                </ul>
+                <a href="404.html" class="group inline-flex items-center gap-2 text-theme-secondary font-medium hover:text-theme-primary transition-colors">
+                    View packages <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+            <div class="order-1 lg:order-2 relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="assets/images/photo-1519085360753-af0119f7cbe7.webp" alt="1-on-1 Coaching" class="w-full object-cover aspect-[4/3] object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-theme-secondary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Service 2: Leadership Team Workshops -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="assets/images/photo-1521791136064-7986c2920216.webp" alt="Team Workshops" class="w-full object-cover aspect-[4/3] object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-theme-secondary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+            <div class="pt-4">
+                <div class="inline-block bg-theme-primary/10 text-theme-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">For Teams</div>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">Leadership Team Workshops</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    Great leaders need great teams. Our immersive workshops are designed to break down silos, foster psychological safety, and align your senior leadership team around a unified vision and operating rhythm.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Conflict Resolution:</strong> Turn team friction into productive dialogue.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Strategic Alignment:</strong> Ensure everyone is rowing in the same direction.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>High-Performance Culture:</strong> Build systems of accountability and trust.</span>
+                    </li>
+                </ul>
+                <a href="404.html" class="group inline-flex items-center gap-2 text-theme-secondary font-medium hover:text-theme-primary transition-colors">
+                    Inquire about team workshops <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Service 3: Career Acceleration -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            <div class="order-2 lg:order-1 pt-4">
+                <div class="inline-block bg-theme-primary/10 text-theme-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">Career Growth</div>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">Career Transition & Acceleration</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    Stepping into a new C-level role, or planning your next big career pivot? The first 90 days are critical. We provide intensive, tactical coaching to help you establish authority, define quick wins, and build key stakeholder relationships immediately.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>The 90-Day Plan:</strong> Hit the ground running in your new role.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Stakeholder Mapping:</strong> Identify and build essential alliances.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Personal Branding:</strong> Position yourself for future opportunities.</span>
+                    </li>
+                </ul>
+                <a href="404.html" class="group inline-flex items-center gap-2 text-theme-secondary font-medium hover:text-theme-primary transition-colors">
+                    Start your transition plan <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+            <div class="order-1 lg:order-2 relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="assets/images/photo-1519389950473-47ba0277781c.webp" alt="Career Acceleration" class="w-full object-cover aspect-[4/3] object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-theme-secondary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Service 4: Board & Strategy Advisory -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="assets/images/photo-1552664730-d307ca884978.webp" alt="Board Advisory" class="w-full object-cover aspect-[4/3] object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-theme-secondary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+            <div class="pt-4">
+                <div class="inline-block bg-theme-primary/10 text-theme-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">Enterprise Level</div>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6 text-theme-secondary">Board & Strategy Advisory</h2>
+                <p class="text-theme-textLight mb-6 leading-relaxed">
+                    Designed for established enterprises navigating major shifts—such as M&A, going public, or massive organizational restructuring. We act as objective advisors to the board and CEO to ensure strategic continuity and leadership stability.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>M&A Integration:</strong> Guide leadership through cultural integration.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Board Dynamics:</strong> Improve communication between CEO and Board.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-theme-primary mt-1"></i>
+                        <span class="text-theme-textLight"><strong>Succession Planning:</strong> Identify and groom the next generation of leaders.</span>
+                    </li>
+                </ul>
+                <a href="404.html" class="group inline-flex items-center gap-2 text-theme-secondary font-medium hover:text-theme-primary transition-colors">
+                    Consult with our advisors <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Our Methodology -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">How We Work</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Our Proven Methodology</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-theme-bgLight p-8 rounded-2xl text-center border border-gray-100 hover:border-theme-primary transition-colors group">
+                    <div class="w-12 h-12 mx-auto bg-white text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-sm group-hover:bg-theme-primary group-hover:text-white transition-colors">1</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Assess</h4>
+                    <p class="text-sm text-theme-textLight">We begin with comprehensive 360-degree interviews and diagnostic tools to establish a baseline.</p>
+                </div>
+                <div class="bg-theme-bgLight p-8 rounded-2xl text-center border border-gray-100 hover:border-theme-primary transition-colors group">
+                    <div class="w-12 h-12 mx-auto bg-white text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-sm group-hover:bg-theme-primary group-hover:text-white transition-colors">2</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Align</h4>
+                    <p class="text-sm text-theme-textLight">Working together, we define crystal clear, measurable objectives that align with company goals.</p>
+                </div>
+                <div class="bg-theme-bgLight p-8 rounded-2xl text-center border border-gray-100 hover:border-theme-primary transition-colors group">
+                    <div class="w-12 h-12 mx-auto bg-white text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-sm group-hover:bg-theme-primary group-hover:text-white transition-colors">3</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Execute</h4>
+                    <p class="text-sm text-theme-textLight">Through bi-weekly sessions, we tackle real-time challenges and implement tactical behavioral changes.</p>
+                </div>
+                <div class="bg-theme-bgLight p-8 rounded-2xl text-center border border-gray-100 hover:border-theme-primary transition-colors group">
+                    <div class="w-12 h-12 mx-auto bg-white text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-sm group-hover:bg-theme-primary group-hover:text-white transition-colors">4</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Sustain</h4>
+                    <p class="text-sm text-theme-textLight">We ensure long-term success by building permanent habits and establishing ongoing accountability metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Pricing / Investment Section -->
+    <section id="pricing" class="py-24 px-6 lg:px-12 bg-theme-secondary text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Investment</p>
+                <h2 class="text-3xl md:text-4xl font-serif mb-4">Transparent Coaching Packages</h2>
+                <p class="text-white/70 max-w-2xl mx-auto">We offer flexible engagement models tailored to your specific needs, timeframe, and organizational goals.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <!-- Package 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                    <h3 class="text-2xl font-serif mb-2">Essential</h3>
+                    <p class="text-theme-primary text-sm font-medium mb-6">3-Month Engagement</p>
+                    <p class="text-white/70 text-sm mb-8 leading-relaxed">Perfect for addressing specific, immediate leadership challenges or navigating short-term transitions.</p>
+                    <ul class="space-y-4 mb-10 text-sm text-white/90">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-theme-primary"></i> Bi-weekly 60-minute sessions</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-theme-primary"></i> Initial leadership assessment</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-theme-primary"></i> Email support between sessions</li>
+                    </ul>
+                    <a href="404.html" class="block text-center border border-theme-primary text-theme-primary hover:bg-theme-primary hover:text-white font-medium py-3 rounded-full transition-colors">Inquire Now</a>
+                </div>
+                
+                <!-- Package 2 (Highlighted) -->
+                <div class="bg-theme-primary text-white rounded-2xl p-8 transform md:-translate-y-4 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-white text-theme-secondary text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <h3 class="text-2xl font-serif mb-2">Professional</h3>
+                    <p class="text-theme-secondary/70 text-sm font-bold mb-6 uppercase tracking-wider">6-Month Engagement</p>
+                    <p class="text-theme-secondary/90 text-sm mb-8 leading-relaxed">Our most recommended program for deep, transformative behavioral change and strategic planning.</p>
+                    <ul class="space-y-4 mb-10 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-white"></i> Bi-weekly 90-minute sessions</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-white"></i> 360-degree feedback review</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-white"></i> Direct phone/text access</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-white"></i> Strategic alignment meeting</li>
+                    </ul>
+                    <a href="404.html" class="block text-center bg-theme-secondary text-white hover:bg-white hover:text-theme-secondary font-medium py-3 rounded-full transition-colors shadow-md">Inquire Now</a>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                    <h3 class="text-2xl font-serif mb-2">Enterprise</h3>
+                    <p class="text-theme-primary text-sm font-medium mb-6">Annual & Team Engagement</p>
+                    <p class="text-white/70 text-sm mb-8 leading-relaxed">Comprehensive coaching solutions for multiple executives or entire leadership teams.</p>
+                    <ul class="space-y-4 mb-10 text-sm text-white/90">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-theme-primary"></i> Custom coaching cadence</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-theme-primary"></i> Quarterly team workshops</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-theme-primary"></i> Organizational culture consulting</li>
+                    </ul>
+                    <a href="404.html" class="block text-center border border-theme-primary text-theme-primary hover:bg-theme-primary hover:text-white font-medium py-3 rounded-full transition-colors">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQ Section -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Got Questions?</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left bg-theme-bgLight hover:bg-gray-50 flex justify-between items-center transition-colors">
+                        <span class="font-semibold text-theme-secondary">How is executive coaching different from consulting?</span>
+                        <i class="fas fa-chevron-down text-theme-primary accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-6">
+                        <p class="py-4 text-sm text-theme-textLight leading-relaxed">Consultants generally solve specific business problems for you by providing expert advice and doing the work. Coaches help you develop the capacity to solve the problems yourself by asking the right questions, acting as a sounding board, and holding you accountable to your own growth.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left bg-theme-bgLight hover:bg-gray-50 flex justify-between items-center transition-colors">
+                        <span class="font-semibold text-theme-secondary">How long does a typical engagement last?</span>
+                        <i class="fas fa-chevron-down text-theme-primary accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-6">
+                        <p class="py-4 text-sm text-theme-textLight leading-relaxed">While we offer a 3-month essential package for rapid transition work, we highly recommend our 6-month professional engagement. Behavioral change and true leadership transformation take time, practice, and continuous reflection.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left bg-theme-bgLight hover:bg-gray-50 flex justify-between items-center transition-colors">
+                        <span class="font-semibold text-theme-secondary">Is the coaching confidential?</span>
+                        <i class="fas fa-chevron-down text-theme-primary accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-6">
+                        <p class="py-4 text-sm text-theme-textLight leading-relaxed">Absolutely. Confidentiality is the cornerstone of effective coaching. Whether you are paying for the coaching yourself or your company is sponsoring it, what we discuss in our sessions remains strictly between you and your coach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Final CTA -->
+    <section class="py-32 px-6 lg:px-12 text-white text-center relative overflow-hidden bg-cta-final">
+        <div class="absolute inset-0 bg-theme-secondary/85 mix-blend-multiply"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-6xl font-serif mb-10 leading-tight">Ready to Elevate<br>Your Leadership?</h2>
+            <p class="text-lg opacity-90 mb-10 max-w-2xl mx-auto font-light">Take the first step towards clarity, confidence, and unparalleled career growth.</p>
+            <a href="404.html" class="inline-flex flex-shrink-0 items-center gap-2 bg-theme-primary hover:bg-theme-primaryHover text-white font-medium px-10 py-4 rounded-full transition-colors text-lg shadow-xl">
+                Book a Discovery Call
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theme-secondary text-white pt-20 pb-8 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+            <!-- Col 1 -->
+            <div>
+                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6">
+                <p class="text-white/70 text-sm leading-relaxed mb-8">
+                    Providing exclusive access to world-class executive coaching. We deliver personalized, high-impact strategies tailored to elevate your leadership and career.
+                </p>
+                <div class="flex gap-4">
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <!-- Col 2 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="index.html" class="hover:text-theme-primary transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-theme-primary transition-colors">About Us</a></li>
+                    <li><a href="service.html" class="hover:text-theme-primary transition-colors">Service</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Blog</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Services</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Executive Coaching</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Leadership Development</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Career Acceleration</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Team Workshops</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Strategy Retreats</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Contact Info</h4>
+                <ul class="space-y-5 text-white/70 text-sm">
+                    <li class="flex items-start gap-4">
+                        <i class="fas fa-map-marker-alt text-theme-primary mt-1"></i>
+                        <span class="leading-relaxed">MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-phone-alt text-theme-primary"></i>
+                        <span>9876543210</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-envelope text-theme-primary"></i>
+                        <span>info@Summit Path.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-white/50 gap-4">
+            <p>&copy; 2026 Summit Path. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="404.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <span>|</span>
+                <a href="404.html" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ Accordion
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.accordion-icon');
+                
+                // Toggle current
+                content.classList.toggle('open');
+                icon.classList.toggle('open');
+                
+                // Close others
+                faqBtns.forEach(otherBtn => {
+                    if (otherBtn !== btn) {
+                        otherBtn.nextElementSibling.classList.remove('open');
+                        otherBtn.querySelector('.accordion-icon').classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

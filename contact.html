@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly- Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 500px; opacity: 1; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-icon.open { transform: rotate(180deg); }
+    </style>
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #ffffff; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        
+        .bg-hero-contact {
+            background-image: linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.8)), url('assets/images/photo-1531482615713-2afd69097998.webp');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased text-theme-textMain bg-white">
+
+        <!-- Header -->
+    <header class="w-full z-50 py-4 px-6 lg:px-12 bg-white shadow-sm sticky top-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto">
+            
+            <button class="md:hidden text-theme-secondary focus:outline-none" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+                        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-theme-secondary">
+                <a href="index.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Home</a>
+                <a href="about.html" class="hover:text-theme-primary transition-colors text-theme-textLight">About</a>
+                <a href="service.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Service</a>
+                <a href="blog.html" class="hover:text-theme-primary transition-colors text-theme-textLight">Blog</a>
+                <a href="contact.html" class="border-b-2 border-theme-primary pb-1 text-theme-secondary">Contact</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-8 py-2.5 text-sm font-bold transition-all shadow-md">Login <i class="fas fa-sign-in-alt ml-1 text-xs"></i></a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-white flex flex-col p-8 gap-6 border-t border-gray-100 z-40 overflow-y-auto text-lg" id="mobile-menu">
+            <a href="index.html" class="hover:text-theme-primary font-medium text-theme-secondary">Home</a>
+            <a href="about.html" class="hover:text-theme-primary font-medium text-theme-secondary">About</a>
+            <a href="service.html" class="hover:text-theme-primary font-medium text-theme-secondary">Service</a>
+            <a href="blog.html" class="hover:text-theme-primary font-medium text-theme-secondary">Blog</a>
+            <a href="contact.html" class="hover:text-theme-primary font-medium text-theme-secondary">Contact</a>
+            <a href="login.html" class="bg-theme-primary hover:bg-theme-primaryHover text-white rounded-full px-6 py-2.5 text-sm font-bold text-center mt-2">Login</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-hero-contact min-h-[50vh] flex items-center relative pt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full text-white z-10 text-center">
+            <p class="uppercase tracking-widest text-xs font-semibold mb-4 opacity-90 text-theme-primary">Get In Touch</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 max-w-4xl mx-auto">
+                Let's Start the Conversation.
+            </h1>
+            <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto font-light">
+                Whether you're ready to transform your leadership journey or simply exploring your options, our team is here to help.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. Contact Information Cards -->
+    <section class="py-20 px-6 lg:px-12 bg-theme-bgLight border-b border-gray-100">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 relative -mt-32 z-20">
+            <!-- Email -->
+            <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-100 text-center group hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors"><i class="fas fa-envelope-open-text"></i></div>
+                <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-3">Email Us</h4>
+                <p class="text-theme-textLight text-sm mb-4">For general inquiries and partnership opportunities.</p>
+                <a href="mailto:info@Summit Path.com" class="text-theme-secondary font-bold hover:text-theme-primary transition-colors">info@Summit Path.com</a>
+            </div>
+            <!-- Phone -->
+            <div class="bg-theme-secondary p-10 rounded-2xl shadow-2xl border border-theme-secondary text-center group hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+                <div class="w-16 h-16 mx-auto bg-white/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors"><i class="fas fa-phone-alt"></i></div>
+                <h4 class="font-serif font-semibold text-xl text-white mb-3">Call Us</h4>
+                <p class="text-white/70 text-sm mb-4">Mon-Fri from 9am to 6pm IST.</p>
+                <a href="tel:9876543210" class="text-white font-bold hover:text-theme-primary transition-colors">+91 98765 43210</a>
+            </div>
+            <!-- Office -->
+            <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-100 text-center group hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-16 h-16 mx-auto bg-theme-primary/10 text-theme-primary rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-theme-primary group-hover:text-white transition-colors"><i class="fas fa-map-marker-alt"></i></div>
+                <h4 class="font-serif font-semibold text-xl text-theme-secondary mb-3">Visit Us</h4>
+                <p class="text-theme-textLight text-sm mb-4">Our Salem headquarters.</p>
+                <span class="text-theme-secondary font-bold block text-sm">MMR Complex, Chinna Thirupathi,<br>Salem, TN 636008</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Contact Form & Image Layout -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Left: Contact Form -->
+            <div class="lg:col-span-7">
+                <div class="mb-10">
+                    <p class="uppercase tracking-widest text-xs font-semibold mb-3 text-theme-primary">Send a Message</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary mb-4">Book Your Discovery Call</h2>
+                    <p class="text-theme-textLight leading-relaxed">Fill out the form below to schedule a complimentary 30-minute discovery session with one of our lead coaches. We'll get back to you within 24 hours.</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-theme-secondary mb-2">First Name <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="John" class="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-theme-secondary mb-2">Last Name <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="Doe" class="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-theme-secondary mb-2">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" placeholder="john@company.com" class="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-theme-secondary mb-2">Phone Number</label>
+                            <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-theme-secondary mb-2">What are you looking for? <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <select class="appearance-none w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors cursor-pointer" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="1on1">1-on-1 Executive Coaching</option>
+                                <option value="team">Leadership Team Workshops</option>
+                                <option value="career">Career Acceleration</option>
+                                <option value="board">Board Advisory</option>
+                                <option value="other">General Inquiry / Other</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-theme-secondary mb-2">Message <span class="text-red-500">*</span></label>
+                        <textarea rows="5" placeholder="Tell us a little bit about your current challenges and goals..." class="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors resize-none" required></textarea>
+                    </div>
+
+                    <button type="button" onclick="window.location.href='404.html'" class="w-full sm:w-auto bg-theme-primary hover:bg-theme-primaryHover text-white font-bold px-10 py-4 rounded-full transition-colors shadow-lg">
+                        Submit Request <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Right: Image -->
+            <div class="lg:col-span-5 relative group hidden lg:block rounded-3xl overflow-hidden shadow-2xl h-full min-h-[600px]">
+                <img src="assets/images/photo-1542744173-8e7e53415bb0.webp" alt="Professional Office" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-theme-secondary/20"></div>
+                <!-- Floating Info Box -->
+                <div class="absolute bottom-10 left-10 right-10 bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-xl">
+                    <h4 class="font-serif font-bold text-xl text-theme-secondary mb-2">Dedicated Support</h4>
+                    <p class="text-sm text-theme-textLight leading-relaxed">Our client success team is available around the clock to ensure your coaching journey is seamless and impactful.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 4. What Happens Next? (Timeline) -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-t border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">The Process</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">What Happens Next?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <!-- Decorative connecting line for desktop -->
+                <div class="hidden md:block absolute top-8 left-[12.5%] w-[75%] h-0.5 bg-gray-200 z-0"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white border-4 border-gray-100 text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm group-hover:border-theme-primary group-hover:text-theme-primary transition-colors">1</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Submit Request</h4>
+                    <p class="text-sm text-theme-textLight leading-relaxed px-4">Fill out the contact form with your details and specific goals.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white border-4 border-gray-100 text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm group-hover:border-theme-primary group-hover:text-theme-primary transition-colors">2</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Discovery Call</h4>
+                    <p class="text-sm text-theme-textLight leading-relaxed px-4">A 30-minute complimentary call to ensure we are the right fit.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white border-4 border-gray-100 text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm group-hover:border-theme-primary group-hover:text-theme-primary transition-colors">3</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Custom Proposal</h4>
+                    <p class="text-sm text-theme-textLight leading-relaxed px-4">We design a tailored coaching roadmap based on your needs.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white border-4 border-gray-100 text-theme-secondary rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm group-hover:border-theme-primary group-hover:text-theme-primary transition-colors">4</div>
+                    <h4 class="font-serif font-semibold text-lg text-theme-secondary mb-3">Program Kickoff</h4>
+                    <p class="text-sm text-theme-textLight leading-relaxed px-4">We begin the transformational work and start executing the plan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Client Success Story -->
+    <section class="py-24 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative group rounded-3xl overflow-hidden shadow-2xl">
+                <img src="assets/images/photo-1497366216548-37526070297c.webp" alt="Client Success" class="w-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-theme-secondary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg flex items-center gap-4">
+                    <div class="flex text-theme-primary text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-xs font-bold text-theme-secondary uppercase tracking-wider">Verified Client</span>
+                </div>
+            </div>
+            <div>
+                <i class="fas fa-quote-left text-4xl text-theme-primary/40 mb-6"></i>
+                <h3 class="text-2xl md:text-3xl font-serif text-theme-secondary mb-8 leading-snug">
+                    "The discovery call alone provided more strategic clarity than months of internal planning. Summit Path doesn't just coach; they completely re-wire how you approach executive leadership."
+                </h3>
+                <div>
+                    <h4 class="font-serif font-bold text-lg text-theme-secondary">Elena Rodriguez</h4>
+                    <p class="text-sm text-theme-textLight">Chief Operating Officer, TechFlow Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAQ (Contact Specific) -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-bgLight border-y border-gray-100">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-xs font-semibold mb-4 text-theme-primary">Common Questions</p>
+                <h2 class="text-3xl md:text-4xl font-serif text-theme-secondary">Before You Reach Out</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-gray-50 flex justify-between items-center transition-colors">
+                        <span class="font-semibold text-theme-secondary">How quickly will I hear back?</span>
+                        <i class="fas fa-chevron-down text-theme-primary accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-6">
+                        <p class="py-4 text-sm text-theme-textLight leading-relaxed">Our team reviews all inquiries and typically responds within 24 business hours to schedule your initial discovery call.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-gray-50 flex justify-between items-center transition-colors">
+                        <span class="font-semibold text-theme-secondary">What should I prepare for the discovery call?</span>
+                        <i class="fas fa-chevron-down text-theme-primary accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-6">
+                        <p class="py-4 text-sm text-theme-textLight leading-relaxed">Simply come as you are. The discovery call is an informal conversation to understand your current leadership challenges, your goals, and to determine if our coaching style is the right fit for you.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-gray-50 flex justify-between items-center transition-colors">
+                        <span class="font-semibold text-theme-secondary">Do you offer coaching outside of the US?</span>
+                        <i class="fas fa-chevron-down text-theme-primary accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-6">
+                        <p class="py-4 text-sm text-theme-textLight leading-relaxed">Yes. While we are headquartered in Salem, we work with executives globally via secure video conferencing, accommodating various time zones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Newsletter CTA -->
+    <section class="py-24 px-6 lg:px-12 bg-theme-secondary text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Not ready to book?<br>Join our newsletter.</h2>
+            <p class="text-white/80 mb-10 max-w-xl mx-auto text-sm md:text-base">Receive actionable leadership frameworks and exclusive coaching insights delivered directly to your inbox every week.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input type="email" placeholder="Enter your business email" class="flex-grow px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-theme-primary transition-colors" required>
+                <button type="button" onclick="window.location.href='404.html'" class="bg-theme-primary hover:bg-theme-primaryHover text-white font-semibold px-8 py-4 rounded-full transition-colors whitespace-nowrap">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+        <!-- 8. Our Location Map -->
+    <section class="py-0">
+        <div class="w-full h-[500px] bg-gray-200 relative">
+            <iframe src="https://maps.google.com/maps?q=11.6829566,78.1739798&hl=en&z=17&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="absolute top-8 left-8 md:top-12 md:left-12 bg-white p-6 rounded-2xl shadow-2xl border border-gray-100 max-w-sm hidden md:block z-10">
+                <h4 class="font-serif font-bold text-xl text-theme-secondary mb-2">Our Office</h4>
+                <p class="text-sm text-theme-textLight leading-relaxed mb-4">MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</p>
+                <a href="https://www.google.com/maps/place/Summit Path/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r" target="_blank" class="text-theme-primary font-semibold hover:text-theme-secondary transition-colors text-sm flex items-center gap-2">Get Directions <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theme-secondary text-white pt-20 pb-8 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+            <!-- Col 1 -->
+            <div>
+                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6">
+                <p class="text-white/70 text-sm leading-relaxed mb-8">
+                    Providing exclusive access to world-class executive coaching. We deliver personalized, high-impact strategies tailored to elevate your leadership and career.
+                </p>
+                <div class="flex gap-4">
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-theme-primary hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <!-- Col 2 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="index.html" class="hover:text-theme-primary transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-theme-primary transition-colors">About Us</a></li>
+                    <li><a href="service.html" class="hover:text-theme-primary transition-colors">Service</a></li>
+                    <li><a href="blog.html" class="hover:text-theme-primary transition-colors">Blog</a></li>
+                    <li><a href="contact.html" class="hover:text-theme-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Services</h4>
+                <ul class="space-y-4 text-white/70 text-sm">
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Executive Coaching</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Leadership Development</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Career Acceleration</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Team Workshops</a></li>
+                    <li><a href="404.html" class="hover:text-theme-primary transition-colors">Strategy Retreats</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div>
+                <h4 class="font-serif font-semibold text-lg mb-6">Contact Info</h4>
+                <ul class="space-y-5 text-white/70 text-sm">
+                    <li class="flex items-start gap-4">
+                        <i class="fas fa-map-marker-alt text-theme-primary mt-1"></i>
+                        <span class="leading-relaxed">MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-phone-alt text-theme-primary"></i>
+                        <span>9876543210</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <i class="fas fa-envelope text-theme-primary"></i>
+                        <span>info@Summit Path.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-white/50 gap-4">
+            <p>&copy; 2026 Summit Path. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="404.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <span>|</span>
+                <a href="404.html" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <style>
+        .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 500px; opacity: 1; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-icon.open { transform: rotate(180deg); }
+    </style>
+          <script>
+          document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+              const menu = document.getElementById('mobile-menu');
+              const icon = this.querySelector('i');
+              menu.classList.toggle('hidden');
+              if(menu.classList.contains('hidden')) {
+                  icon.classList.remove('fa-times');
+                  icon.classList.add('fa-bars');
+              } else {
+                  icon.classList.remove('fa-bars');
+                  icon.classList.add('fa-times');
+              }
+          });
+      </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

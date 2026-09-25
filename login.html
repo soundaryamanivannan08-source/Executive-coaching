@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+                tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            primary: '#a80011', /* Deep Red / Crimson */
+                            primaryHover: '#8a000e',
+                            secondary: '#111827', /* Charcoal / Dark Gray */
+                            textMain: '#1f2937',
+                            textLight: '#4b5563',
+                            bgLight: '#f9fafb',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #ffffff; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Merriweather', serif; }
+        .bg-auth-side {
+            background-image: url('assets/images/photo-1517245386807-bb43f82c33c4.webp');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex text-theme-textMain bg-white">
+
+    <!-- Left Side: Image / Branding (Hidden on Mobile) -->
+    <div class="hidden lg:flex lg:w-1/2 bg-auth-side relative overflow-hidden">
+        <div class="absolute inset-0 bg-theme-secondary/85 mix-blend-multiply transition-all duration-700 hover:bg-theme-secondary/75"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-theme-secondary via-theme-secondary/20 to-transparent"></div>
+        
+        <div class="relative z-10 flex flex-col justify-end p-16 lg:p-24 text-white w-full h-full">
+            <div class="mb-8">
+                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto -ml-3">
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-serif leading-tight mb-6">Empowering Leaders to Become Their Best.</h2>
+            <p class="text-white/70 text-lg max-w-md font-light">Access your exclusive executive coaching dashboard, leadership frameworks, and private session notes.</p>
+        </div>
+    </div>
+
+    <!-- Right Side: Login Form -->
+    <div class="w-full lg:w-1/2 flex flex-col justify-center relative p-8 sm:p-16 lg:p-24 h-screen overflow-y-auto">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="absolute top-8 right-8 sm:top-12 sm:right-12 text-sm font-semibold text-gray-400 hover:text-theme-primary transition-colors flex items-center gap-2 group">
+            <i class="fas fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i> Back to Home
+        </a>
+
+        <div class="w-full max-w-md mx-auto mt-12 lg:mt-0">
+            <!-- Header -->
+            <div class="mb-10 text-center lg:text-left">
+                <h1 class="text-3xl md:text-4xl font-serif text-theme-secondary mb-3">Welcome Back</h1>
+                <p class="text-theme-textLight text-sm">Please enter your details to sign in to your account.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-6">
+                
+                <!-- Role Selector -->
+                <div class="flex bg-gray-50 border border-gray-200 p-1 rounded-xl mb-6 shadow-inner">
+                    <label class="flex-1 text-center cursor-pointer relative">
+                        <input type="radio" name="role" value="user" class="peer sr-only" checked>
+                        <div class="py-2.5 rounded-lg text-sm font-bold text-gray-400 peer-checked:bg-white peer-checked:text-theme-secondary peer-checked:shadow-sm transition-all duration-300">User</div>
+                    </label>
+                    <label class="flex-1 text-center cursor-pointer relative">
+                        <input type="radio" name="role" value="admin" class="peer sr-only">
+                        <div class="py-2.5 rounded-lg text-sm font-bold text-gray-400 peer-checked:bg-white peer-checked:text-theme-secondary peer-checked:shadow-sm transition-all duration-300">Admin</div>
+                    </label>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-sm font-semibold text-theme-secondary mb-2">Email Address</label>
+                    <div class="relative">
+                        <i class="fas fa-envelope absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="email" placeholder="john@company.com" class="w-full pl-12 pr-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors text-sm shadow-sm" required>
+                    </div>
+                </div>
+
+                <!-- Password with Eye Toggle -->
+                <div>
+                    <label class="block text-sm font-semibold text-theme-secondary mb-2">Password</label>
+                    <div class="relative group">
+                        <i class="fas fa-lock absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" id="password" placeholder="••••••••" class="w-full pl-12 pr-12 py-4 rounded-xl bg-gray-50 border border-gray-200 text-theme-textMain focus:outline-none focus:border-theme-primary focus:bg-white transition-colors text-sm shadow-sm" required>
+                        <i id="togglePasswordIcon" class="fas fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-theme-primary cursor-pointer transition-colors" onclick="togglePassword('password', 'togglePasswordIcon')"></i>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-theme-primary focus:ring-theme-primary accent-theme-primary cursor-pointer">
+                        <span class="text-sm font-medium text-theme-textLight group-hover:text-theme-secondary transition-colors">Remember me</span>
+                    </label>
+                    <a href="404.html" class="text-sm font-bold text-theme-primary hover:text-theme-primaryHover transition-colors">Forgot Password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="w-full bg-theme-secondary hover:bg-[#252046] text-white font-bold px-10 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Sign In
+                </button>
+            </form>
+
+            <!-- Signup Link -->
+            <p class="text-center text-sm font-medium text-theme-textLight mt-8">
+                Don't have an account? 
+                <a href="signup.html" class="text-theme-primary font-bold hover:text-theme-secondary transition-colors">Create one here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Interactive Logic -->
+    <script>
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault(); // Prevent page reload
+            
+            const form = document.getElementById('loginForm');
+            if(form.checkValidity()) {
+                const emailInput = form.querySelector('input[type="email"]');
+                if(emailInput && emailInput.value) {
+                    const namePart = emailInput.value.split('@')[0];
+                    const username = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+                    localStorage.setItem('currentUser', username);
+                }
+
+                const role = document.querySelector('input[name="role"]:checked').value;
+                if (role === 'admin') {
+                    window.location.href = 'admin-dashboard.html';
+                } else {
+                    window.location.href = 'user-dashboard.html';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
