@@ -37,18 +37,28 @@
             background-size: cover; background-position: center;
         }
     </style>
+
+    
+    
+    <script>
+        function handleGenericSubmit(e, redirectUrl) {
+            e.preventDefault();
+            window.location.href = redirectUrl;
+        }
+    </script>
 </head>
 <body class="antialiased min-h-screen flex text-theme-textMain bg-white">
 
     <!-- Left Side: Image / Branding (Hidden on Mobile) -->
     <div class="hidden lg:flex lg:w-1/2 bg-auth-side relative overflow-hidden">
+        <a href="index.html" class="absolute top-8 left-8 sm:top-12 sm:left-12 z-20">
+            <img src="assets/images/logo.webp" alt="Summit Path" class="h-10 w-auto hover:opacity-80 transition-opacity">
+        </a>
         <div class="absolute inset-0 bg-theme-secondary/85 mix-blend-multiply transition-all duration-700 hover:bg-theme-secondary/75"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-theme-secondary via-theme-secondary/20 to-transparent"></div>
         
         <div class="relative z-10 flex flex-col justify-end p-16 lg:p-24 text-white w-full h-full">
-            <div class="mb-8">
-                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto -ml-3">
-            </div>
+            
             <h2 class="text-4xl lg:text-5xl font-serif leading-tight mb-6">Empowering Leaders to Become Their Best.</h2>
             <p class="text-white/70 text-lg max-w-md font-light">Access your exclusive executive coaching dashboard, leadership frameworks, and private session notes.</p>
         </div>
@@ -69,7 +79,7 @@
             </div>
 
             <!-- Form -->
-            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-6">
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-6" >
                 
                 <!-- Role Selector -->
                 <div class="flex bg-gray-50 border border-gray-200 p-1 rounded-xl mb-6 shadow-inner">
@@ -145,7 +155,13 @@
             e.preventDefault(); // Prevent page reload
             
             const form = document.getElementById('loginForm');
-            if(form.checkValidity()) {
+            if(!form.checkValidity()) {
+                
+                
+
+                return;
+            }
+            if(true) {
                 const emailInput = form.querySelector('input[type="email"]');
                 if(emailInput && emailInput.value) {
                     const namePart = emailInput.value.split('@')[0];
@@ -164,6 +180,14 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 

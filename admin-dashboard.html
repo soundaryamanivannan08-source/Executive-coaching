@@ -43,6 +43,15 @@
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
+
+    
+    
+    <script>
+        function handleGenericSubmit(e, redirectUrl) {
+            e.preventDefault();
+            window.location.href = redirectUrl;
+        }
+    </script>
 </head>
 <body class="h-screen w-full flex overflow-hidden text-theme-textMain">
 
@@ -53,7 +62,7 @@
     <aside id="sidebar" class="w-64 bg-theme-secondary text-white flex-shrink-0 flex flex-col fixed lg:static inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
         <!-- Logo -->
         <div class="h-20 flex items-center justify-center border-b border-white/10 px-6">
-            <a href="index.html" class="flex items-center justify-center w-full">
+            <a href="admin-dashboard.html" class="flex items-center justify-center w-full">
                 <img src="assets/images/logo.webp" alt="Summit Path Admin" class="h-10 w-auto">
             </a>
             <button class="lg:hidden ml-auto text-gray-400 hover:text-white" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
@@ -373,7 +382,7 @@
             <section id="settings" class="content-section">
                 <h3 class="font-serif font-bold text-theme-secondary text-2xl mb-8">Platform Settings</h3>
                 <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 max-w-3xl">
-                    <form class="space-y-6">
+                    <form class="space-y-6" onsubmit="handleGenericSubmit(event, '404.html')" >
                         <h4 class="text-lg font-bold text-theme-secondary border-b border-gray-100 pb-2">Admin Profile</h4>
                         <div class="flex items-center gap-6 mb-6">
                             <div class="w-24 h-24 rounded-full bg-theme-primary flex items-center justify-center text-white font-bold font-serif text-3xl">S</div>
@@ -383,11 +392,11 @@
                         <div class="grid grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-semibold text-gray-600 mb-2">Full Name</label>
-                                <input type="text" value="Sarah Jenkins" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
+                                <input type="text" value="Sarah Jenkins" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-gray-600 mb-2">Email Address</label>
-                                <input type="email" value="sarah@Summit Path.com" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
+                                <input type="email" value="sarah@Summit Path.com" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-theme-primary focus:bg-white text-sm">
                             </div>
                         </div>
 
@@ -404,7 +413,7 @@
                         </div>
 
                         <div class="pt-6 flex justify-end">
-                            <button type="button" onclick="window.location.href='404.html'" class="bg-theme-secondary text-white font-bold px-8 py-3 rounded-xl hover:bg-black transition-colors">Save Changes</button>
+                            <button type="submit" class="bg-theme-secondary text-white font-bold px-8 py-3 rounded-xl hover:bg-black transition-colors">Save Changes</button>
                         </div>
                     </form>
                 </div>
@@ -481,6 +490,13 @@
         </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 

@@ -43,13 +43,22 @@
             background-size: cover; background-position: center;
         }
     </style>
+
+    
+    
+    <script>
+        function handleGenericSubmit(e, redirectUrl) {
+            e.preventDefault();
+            window.location.href = redirectUrl;
+        }
+    </script>
 </head>
 <body class="antialiased text-theme-textMain bg-white">
 
         <!-- Header -->
     <header class="w-full z-50 py-4 px-6 lg:px-12 bg-white shadow-sm sticky top-0">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto">
+            <a href="index.html"><img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto cursor-pointer hover:opacity-80 transition-opacity"></a>
             
             <button class="md:hidden text-theme-secondary focus:outline-none" id="mobile-menu-btn">
                 <i class="fas fa-bars text-2xl"></i>
@@ -473,9 +482,9 @@
             <i class="fas fa-envelope-open-text text-4xl text-theme-primary mb-6"></i>
             <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Leadership Insights,<br>Delivered Weekly.</h2>
             <p class="text-white/80 mb-10 max-w-xl mx-auto text-sm md:text-base">Join over 15,000 executives who receive our exclusive newsletter packed with actionable frameworks, case studies, and coaching strategies.</p>
-            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onsubmit="handleGenericSubmit(event, '404.html')" >
                 <input type="email" placeholder="Enter your business email" class="flex-grow px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-theme-primary transition-colors" required>
-                <button type="button" onclick="window.location.href='404.html'" class="bg-theme-primary hover:bg-theme-primaryHover text-white font-semibold px-8 py-4 rounded-full transition-colors whitespace-nowrap">Subscribe Now</button>
+                <button type="submit" class="bg-theme-primary hover:bg-theme-primaryHover text-white font-semibold px-8 py-4 rounded-full transition-colors whitespace-nowrap">Subscribe Now</button>
             </form>
             <p class="text-xs text-white/50 mt-4">We respect your inbox. Unsubscribe at any time.</p>
         </div>
@@ -499,7 +508,7 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
             <!-- Col 1 -->
             <div>
-                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6">
+                <a href="index.html"><img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6 cursor-pointer hover:opacity-80 transition-opacity"></a>
                 <p class="text-white/70 text-sm leading-relaxed mb-8">
                     Providing exclusive access to world-class executive coaching. We deliver personalized, high-impact strategies tailored to elevate your leadership and career.
                 </p>
@@ -581,6 +590,12 @@
       </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

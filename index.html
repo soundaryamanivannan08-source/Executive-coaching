@@ -51,13 +51,22 @@
             background-position: center;
         }
     </style>
+
+    
+    
+    <script>
+        function handleGenericSubmit(e, redirectUrl) {
+            e.preventDefault();
+            window.location.href = redirectUrl;
+        }
+    </script>
 </head>
 <body class="antialiased text-theme-textMain bg-white">
 
         <!-- Header -->
     <header class="w-full z-50 py-4 px-6 lg:px-12 bg-white shadow-sm sticky top-0">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto">
+            <a href="index.html"><img src="assets/images/logo.webp" alt="Summit Path Executive Coaching" class="h-12 w-auto cursor-pointer hover:opacity-80 transition-opacity"></a>
             
             <!-- Mobile Menu Button -->
             <button class="md:hidden text-theme-secondary focus:outline-none" id="mobile-menu-btn">
@@ -608,7 +617,7 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
             <!-- Col 1 -->
             <div>
-                <img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6">
+                <a href="index.html"><img src="assets/images/logo.webp" alt="Summit Path" class="h-12 w-auto mb-6 cursor-pointer hover:opacity-80 transition-opacity"></a>
                 <p class="text-white/70 text-sm leading-relaxed mb-8">
                     Providing exclusive access to world-class executive coaching. We deliver personalized, high-impact strategies tailored to elevate your leadership and career.
                 </p>
@@ -723,6 +732,11 @@
     </script>
 </body>
 </html>
+
+
+
+
+
 
 
 
